@@ -1,0 +1,72 @@
+{
+    "count": 149,
+    "filters": {},
+    "competitions": [
+        {
+            "id": 2006,
+            "area": {
+                "id": 2001,
+                "name": "Africa",
+                "countryCode": "AFR",
+                "ensignUrl": null
+            },
+            "name": "WC Qualification",
+            "code": null,
+            "emblemUrl": null,
+            "plan": "TIER_FOUR",
+            "currentSeason": {
+                "id": 555,
+                "startDate": "2019-09-04",
+                "endDate": "2021-11-16",
+                "currentMatchday": null,
+                "winner": null
+            },
+            "numberOfAvailableSeasons": 2,
+            "lastUpdated": "2018-06-04T23:54:04Z"
+        },
+        {
+            "id": 2024,
+            "area": {
+                "id": 2011,
+                "name": "Argentina",
+                "countryCode": "ARG",
+                "ensignUrl": null
+            },
+            "name": "Superliga Argentina",
+            "code": "ASL",
+            "emblemUrl": null,
+            "plan": "TIER_TWO",
+            "currentSeason": {
+                "id": 539,
+                "startDate": "2019-07-27",
+                "endDate": "2020-03-01",
+                "currentMatchday": 22,
+                "winner": null
+            },
+            "numberOfAvailableSeasons": 3,
+            "lastUpdated": "2020-03-10T12:10:19Z"
+        },
+        {
+            "id": 2025,
+            "area": {
+                "id": 2011,
+                "name": "Argentina",
+                "countryCode": "ARG",
+                "ensignUrl": null
+            },
+            "name": "Supercopa Argentina",
+            "code": null,
+            "emblemUrl": null,
+            "plan": "TIER_FOUR",
+            "currentSeason": {
+                "id": 430,
+                "startDate": "2019-04-04",
+                "endDate": "2019-04-04",
+                "currentMatchday": null,
+                "winner": null
+            },
+            "numberOfAvailableSeasons": 2,
+            "lastUpdated": "2019-05-03T05:08:18Z"
+        }
+    ]
+}
