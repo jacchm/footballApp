@@ -1,15 +1,10 @@
-package jacchm.footballapp.pojo.competition;
+package jacchm.footballapp.model.dto;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 @Data
-@Entity
-public class Winner {
+public class WinnerDTO {
 
-    @Id
     private Integer id;
     private String name;
     private String shortName;

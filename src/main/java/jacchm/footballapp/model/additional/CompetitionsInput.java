@@ -1,18 +1,16 @@
-package jacchm.footballapp.pojo.competition;
+package jacchm.footballapp.model.additional;
 
-import lombok.Getter;
-import lombok.Setter;
+import jacchm.footballapp.model.dto.CompetitionDTO;
+import lombok.Data;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 public class CompetitionsInput {
 
     private int id;
     private Integer count;
 //    this is omitted because all competitions are always necessary to get
 //    private List<String> filters;
-    private List<Competition> competitions;
-
+    private List<CompetitionDTO> competitions;
 
 }

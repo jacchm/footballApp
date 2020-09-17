@@ -1,7 +1,6 @@
-package jacchm.footballapp.pojo.competition;
+package jacchm.footballapp.model.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,10 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @Entity
-public class CurrentSeason {
+public class Season {
 
     @Id
     private Integer id;

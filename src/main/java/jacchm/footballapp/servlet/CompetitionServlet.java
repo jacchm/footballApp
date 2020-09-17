@@ -1,8 +1,12 @@
 package jacchm.footballapp.servlet;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import jacchm.footballapp.model.dto.CompetitionDTO;
+import jacchm.footballapp.model.mapper.CompetitionMapper;
+import jacchm.footballapp.service.ExternalFootballAPI;
 import jacchm.footballapp.util.JsonUtil;
-import jacchm.footballapp.pojo.competition.Competition;
-import jacchm.footballapp.pojo.competition.CompetitionsInput;
+import jacchm.footballapp.model.entity.Competition;
+import jacchm.footballapp.model.additional.CompetitionsInput;
 import jacchm.footballapp.repository.CompetitionRepository;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -20,19 +24,24 @@ import java.io.IOException;
 public class CompetitionServlet {
 
     CompetitionRepository competitionRepository;
+    ExternalFootballAPI externalFootballAPI;
+
     private final Logger logger = LoggerFactory.getLogger(CompetitionServlet.class);
 
-
-    @GetMapping("/all")
-    public String updateCompetitionDatabase() {
+    @GetMapping("/updateAllFromFile")
+    public String updateCompetitionDataBaseFromFile() {
         File file = new File("D:\\JavaProjects\\footballapp\\src\\main\\" +
                 "resources\\dataFromExternalApi\\EnglishFromApi.json");
-        CompetitionsInput competitionsInput;
+        CompetitionsInput competitionsInputDTO;
         try {
-            competitionsInput = JsonUtil.fromJsonFile(file, CompetitionsInput.class);
+            competitionsInputDTO = JsonUtil.fromJsonFile(file, CompetitionsInput.class);
 
-            for (Competition competition : competitionsInput.getCompetitions()) {
-                    competitionRepository.save(competition);
+            System.out.println("CompetitionsInputDTO " + competitionsInputDTO.getCount() + "   " + competitionsInputDTO.getId());
+            System.out.println("CompetitionsInputDTO is list empty: " + competitionsInputDTO.getCompetitions().isEmpty());
+
+            for (CompetitionDTO competitionDTO : competitionsInputDTO.getCompetitions()) {
+                Competition competition = CompetitionMapper.INSTANCE.competitionDtoToCompetition(competitionDTO);
+                competitionRepository.save(competition);
             }
 
             logger.info("Competitions have been successfully added to the database");
@@ -44,55 +53,38 @@ public class CompetitionServlet {
         }
     }
 
+    @GetMapping("/updateAll")
+    public String updateCompetitionDataBase() {
 
+        String jsonCompetitionInput;
+        CompetitionsInput competitionsInputDTO;
+        JsonNode node;
 
-    /*static {
-        System.out.println("CompetitionController static block running: ");
         try {
+            jsonCompetitionInput = externalFootballAPI.getCompetitions();
+            node = JsonUtil.parse(jsonCompetitionInput);
+            competitionsInputDTO = JsonUtil.fromJson(node, CompetitionsInput.class);
 
-            competitionsInput = JsonUtil.fromJsonFile(file, CompetitionsInput.class);
-
-            System.out.println(competitionsInputFile.getCompetitions().get(0).toString());
-
-
-        *//*  System.out.println("--------- Leagues data -----------");
-
-            System.out.println(competitionsInputFile.getCount() + " leagues detected");
-
-            for (Competition competition : competitionsInputFile.getCompetitions()) {
-                System.out.println("----------------------------");
-                System.out.println("Competition id: " + competition.getId());
-                System.out.println("League country id: " + competition.getArea().getId());
-                System.out.println("League country name: " + competition.getArea().getName());
-                System.out.println("League country code: " + competition.getArea().getCountryCode());
-                System.out.println("League country: " + competition.getArea().getEnsignUrl());
-                System.out.println("League Name: " + competition.getName());
-                System.out.println("League Code: " + competition.getCode());
-                System.out.println("EnsignUrl: " + competition.getEnsignUrl());
-                System.out.println("League plan: " + competition.getPlan());
-
-                if (competition.getCurrentSeason() != null) {
-                    System.out.println("League current season start date: " + competition.getCurrentSeason().getStartDate());
-                    System.out.println("League current season end date: " + competition.getCurrentSeason().getEndDate());
-                    System.out.println("League current season current matchday: " + competition.getCurrentSeason().getCurrentMatchday());
-
-                    if (competition.getCurrentSeason().getWinner() != null) {
-                        System.out.println("League current season winner id: " + competition.getCurrentSeason().getWinner().getId());
-                        System.out.println("League current season winner name: " + competition.getCurrentSeason().getWinner().getName());
-                        System.out.println("League current season winner short name: " + competition.getCurrentSeason().getWinner().getShortName());
-                        System.out.println("League current season winner crest url: " + competition.getCurrentSeason().getWinner().getCrestURL());
-                        System.out.println("League current season winner tla: " + competition.getCurrentSeason().getWinner().getTla());
-                    }
-                }
-
-                System.out.println("League number of available seasons: " + competition.getNumberOfAvailableSeasons());
-                System.out.println("League last time updated: " + competition.getLastUpdated());
+            for (CompetitionDTO competitionDTO : competitionsInputDTO.getCompetitions()) {
+                Competition competition = CompetitionMapper.INSTANCE.competitionDtoToCompetition(competitionDTO);
+                competitionRepository.save(competition);
             }
-*//*
+
+            logger.info("Competitions have been successfully added to the database");
+            return "Competitions have been successfully added to the database";
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error during json handling has been encountered. ");
+            return "Json has not been handled successfully";
         }
-    }*/
+    }
+
+    @GetMapping("/deleteAll")
+    public String deleteAllStandingsFromDataBase() {
+        competitionRepository.deleteAll();
+
+        return "Delete completed";
+    }
+
 }
 

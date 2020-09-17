@@ -1,4 +1,4 @@
-package jacchm.footballapp.pojo.competition;
+package jacchm.footballapp.model.entity;
 
 import lombok.Data;
 
@@ -18,7 +18,7 @@ public class Competition {
     private String ensignUrl;
     private String plan;
     @OneToOne(cascade = CascadeType.ALL)
-    private CurrentSeason currentSeason;
+    private Season currentSeason;
     private Integer numberOfAvailableSeasons;
     private LocalDateTime lastUpdated;
 

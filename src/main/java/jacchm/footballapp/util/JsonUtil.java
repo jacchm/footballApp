@@ -21,6 +21,10 @@ public class JsonUtil {
         return defaultObjectMapper;
     }
 
+    public static ObjectMapper getObjectMapper() {
+        return objectMapper;
+    }
+
     public static JsonNode parse(String src) throws JsonProcessingException {
         return objectMapper.readTree(src);
     }
@@ -31,6 +35,10 @@ public class JsonUtil {
 
     public static <A> A fromJsonFile(File file, Class<A> clazz) throws IOException {
         return objectMapper.readValue(file, clazz);
+    }
+
+    public static <A> A complexRead(String json, Class<A> clazz) throws JsonProcessingException {
+        return objectMapper.readValue(json, clazz);
     }
 
     public static JsonNode toJson(Object a) {
@@ -51,6 +59,7 @@ public class JsonUtil {
         ObjectWriter objectWriter = objectMapper.writer();
         if (pretty) {
             objectWriter = objectWriter.with(SerializationFeature.INDENT_OUTPUT);
+
         }
         return objectWriter.writeValueAsString(node);
     }
