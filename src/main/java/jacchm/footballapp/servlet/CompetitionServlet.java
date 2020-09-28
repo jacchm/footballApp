@@ -11,6 +11,7 @@ import jacchm.footballapp.repository.CompetitionRepository;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,7 +46,7 @@ public class CompetitionServlet {
             }
 
             logger.info("Competitions have been successfully added to the database");
-            return "Competitions have been successfully added to the database";
+            return "DONE";
 
         } catch (IOException e) {
             logger.error("Error has been encountered. ");
@@ -71,15 +72,15 @@ public class CompetitionServlet {
             }
 
             logger.info("Competitions have been successfully added to the database");
-            return "Competitions have been successfully added to the database";
+            return "DONE";
 
         } catch (IOException e) {
-            logger.error("Error during json handling has been encountered. ");
+            logger.error("Error during json handling has been encountered.");
             return "Json has not been handled successfully";
         }
     }
 
-    @GetMapping("/deleteAll")
+    @DeleteMapping("/deleteAll")
     public String deleteAllStandingsFromDataBase() {
         competitionRepository.deleteAll();
 

@@ -15,6 +15,7 @@ import java.net.URL;
 public class ExternalFootballAPI {
 
     private final String FOOTBALL_API_URL = "http://api.football-data.org";
+    private final String httpMethod = "GET";
 
     private final String AUTH_TOKEN = "641dd694283241309d4549a804a9757e";
     private final String AUTH_HEADER = "X-Auth-Token";
@@ -25,18 +26,29 @@ public class ExternalFootballAPI {
         String url = FOOTBALL_API_URL + "/v2/competitions/";
         URL obj = new URL(url);
 
+        return getResponse(obj);
+    }
+
+    public String getStandings(String competitionsId) throws IOException {
+        String url = FOOTBALL_API_URL + "/v2/competitions/" + competitionsId + "/standings";
+        URL obj = new URL(url);
+
+        return getResponse(obj);
+    }
+
+    private String getResponse(URL obj) throws IOException {
+
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         // setting for HttpURLConnection
-        con.setRequestMethod("GET");
+        con.setRequestMethod(httpMethod);
         con.setRequestProperty(AUTH_HEADER, AUTH_TOKEN);
 
         // logs from request
-        logger.info("Update competitions request has been sent.");
-
+        logger.info("Request to external API has been sent.");
         // handle error response code if occurs
         int responseCode = con.getResponseCode();
         logger.info("Response code: " + responseCode);
-        
+
         InputStream inputStream;
         if (200 <= responseCode && responseCode <= 299) {
             inputStream = con.getInputStream();
@@ -58,8 +70,5 @@ public class ExternalFootballAPI {
         return response.toString();
     }
 
-/*    private String connectToFootballAPI(URL url, ){
-
-    }*/
 
 }
