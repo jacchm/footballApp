@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class TableInputDTO {
 
+    private Integer id;
     private Integer position;
     private TeamDTO team;
     private Integer playedGames;

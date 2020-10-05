@@ -7,7 +7,7 @@ import java.time.LocalDate;
 @Data
 public class TeamDTO {
 
-    private Integer id;
+    private int id;
     private AreaDTO area;
     private String name;
     private String shortName;

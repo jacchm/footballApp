@@ -2,14 +2,17 @@ package jacchm.footballapp.model.entity;
 
 import lombok.Data;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
 @Entity
-public class Team {
+@Embeddable
+public class Team implements Serializable {
 
     @Id
     private Integer id;

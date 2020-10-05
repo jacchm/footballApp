@@ -2,18 +2,18 @@ package jacchm.footballapp.model.entity;
 
 import lombok.Data;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
-public class TableInput {
+public class TableInput implements Serializable {
 
     @Id
+    @GeneratedValue
+    private Integer id;
     private Integer position;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private Team team;
     private Integer playedGames;
     private String form;

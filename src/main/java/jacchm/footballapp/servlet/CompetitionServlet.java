@@ -32,13 +32,13 @@ public class CompetitionServlet {
     @GetMapping("/updateAllFromFile")
     public String updateCompetitionDataBaseFromFile() {
         File file = new File("D:\\JavaProjects\\footballapp\\src\\main\\" +
-                "resources\\dataFromExternalApi\\EnglishFromApi.json");
+                "resources\\dataFromExternalApi\\AllCompetitions.json");
         CompetitionsInput competitionsInputDTO;
         try {
             competitionsInputDTO = JsonUtil.fromJsonFile(file, CompetitionsInput.class);
 
-            System.out.println("CompetitionsInputDTO " + competitionsInputDTO.getCount() + "   " + competitionsInputDTO.getId());
-            System.out.println("CompetitionsInputDTO is list empty: " + competitionsInputDTO.getCompetitions().isEmpty());
+//            System.out.println("CompetitionsInputDTO " + competitionsInputDTO.getCount() + "   " + competitionsInputDTO.getId());
+//            System.out.println("CompetitionsInputDTO is list empty: " + competitionsInputDTO.getCompetitions().isEmpty());
 
             for (CompetitionDTO competitionDTO : competitionsInputDTO.getCompetitions()) {
                 Competition competition = CompetitionMapper.INSTANCE.competitionDtoToCompetition(competitionDTO);
@@ -81,11 +81,13 @@ public class CompetitionServlet {
     }
 
     @DeleteMapping("/deleteAll")
-    public String deleteAllStandingsFromDataBase() {
+    public String deleteAllCompetitionsFromDataBase() {
         competitionRepository.deleteAll();
 
         return "Delete completed";
     }
+
+
 
 }
 

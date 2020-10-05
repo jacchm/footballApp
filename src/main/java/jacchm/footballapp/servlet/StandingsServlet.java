@@ -1,10 +1,13 @@
 package jacchm.footballapp.servlet;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import jacchm.footballapp.model.additional.StandingsInput;
+import jacchm.footballapp.model.dto.StandingsInputDTO;
+import jacchm.footballapp.model.entity.StandingsInput;
 import jacchm.footballapp.model.dto.StandingDTO;
 import jacchm.footballapp.model.entity.Standing;
 import jacchm.footballapp.model.mapper.StandingMapper;
+import jacchm.footballapp.model.mapper.StandingsInputMapper;
+import jacchm.footballapp.repository.StandingInputRepository;
 import jacchm.footballapp.repository.StandingRepository;
 import jacchm.footballapp.service.ExternalFootballAPI;
 import jacchm.footballapp.util.JsonUtil;
@@ -22,25 +25,35 @@ import java.io.IOException;
 public class StandingsServlet {
 
     ExternalFootballAPI externalFootballAPI;
-    StandingRepository standingRepository;
+    StandingInputRepository standingInputRepository;
 
     private final Logger logger = LoggerFactory.getLogger(CompetitionServlet.class);
 
     @GetMapping("/updateFromFile")
     public String updateStandingsDataBaseFromFile() {
         File file = new File("D:\\JavaProjects\\footballapp\\src\\main\\resources\\dataFromExternalApi" +
-                "\\EnglishSeasonFromAPI.json");
-        StandingsInput standingsInputDTO;
+                "\\PremierLeagueStandings.json");
+        StandingsInputDTO standingsInputDTO;
+
+
         try {
-            standingsInputDTO = JsonUtil.fromJsonFile(file, StandingsInput.class);
+            standingsInputDTO = JsonUtil.fromJsonFile(file, StandingsInputDTO.class);
+            System.out.println("-----------------------------------------------------");
+            System.out.println(standingsInputDTO.toString());
+            System.out.println("-----------------------------------------------------");
 
-            System.out.println(standingsInputDTO.getStandings().toString());
+//            System.out.println("I am here ============================================================");
+//            for (StandingDTO standingDTO : standingsInputDTO.getStandings()) {
+//                Standing standing = StandingMapper.INSTANCE.standingDtoToStanding(standingDTO);
+//                standingRepository.save(standing);
+//            }
 
+            System.out.println("I am there ============================================================ StandingsInputMapper.INSTANCE.standingsInputDtoToStandingsInput(standingsInputDTO);");
+            StandingsInput standingsInput = StandingsInputMapper.INSTANCE.standingsInputDtoToStandingsInput(standingsInputDTO);
+            System.out.println(standingsInput.toString());
+            System.out.println(standingsInput.getStandings().get(0).getLeagueTable().get(0));
+            standingInputRepository.save(standingsInput);
 
-            for (StandingDTO standingDTO : standingsInputDTO.getStandings()) {
-                Standing standing = StandingMapper.INSTANCE.standingDtoToStanding(standingDTO);
-                standingRepository.save(standing);
-            }
 
             logger.info("Standings have been successfully added to the database");
             return "Standings have been successfully added to the database";
@@ -56,20 +69,15 @@ public class StandingsServlet {
     public String updateStandingsDataBase(@RequestParam String id) {
 
         String jsonCompetitionInput;
-        StandingsInput standingsInputDTO;
+        StandingsInputDTO standingsInputDTO;
         JsonNode node;
 
         try {
             jsonCompetitionInput = externalFootballAPI.getStandings(id);
             node = JsonUtil.parse(jsonCompetitionInput);
-            standingsInputDTO = JsonUtil.fromJson(node, StandingsInput.class);
+            standingsInputDTO = JsonUtil.fromJson(node, StandingsInputDTO.class);
 
             System.out.println(standingsInputDTO.getStandings().toString());
-
-            for (StandingDTO standingDTO : standingsInputDTO.getStandings()) {
-                Standing standing = StandingMapper.INSTANCE.standingDtoToStanding(standingDTO);
-                standingRepository.save(standing);
-            }
 
             logger.info("Standings have been successfully added to the database");
             return "Standings have been successfully added to the database";
@@ -90,7 +98,7 @@ public class StandingsServlet {
 
     @DeleteMapping("/deleteAll")
     public String deleteAllStandingsFromDataBase() {
-        standingRepository.deleteAll();
+        standingInputRepository.deleteAll();
 
         return "Delete completed";
     }

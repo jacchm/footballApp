@@ -7,10 +7,10 @@ import java.time.LocalDate;
 @Data
 public class SeasonDTO {
 
-    private Integer id;
+    private int id;
     private LocalDate startDate;
     private LocalDate endDate;
-    private Integer currentMatchday;
-    private WinnerDTO winner;
+    private int currentMatchday;
+    private TeamDTO winner;
 
 }

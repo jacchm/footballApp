@@ -1,5 +1,6 @@
 package jacchm.footballapp.model.dto;
 
+
 import lombok.Data;
 
 import java.util.List;
@@ -7,11 +8,27 @@ import java.util.List;
 @Data
 public class StandingDTO {
 
-    private Integer id;
+    private Integer id = null;
     private String stage;
     private String type;
     private String group;
     private List<TableInputDTO> table;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getStage() {
+        return stage;
+    }
+
+    public void setStage(String stage) {
+        this.stage = stage;
+    }
 
     public String getType() {
         return type;

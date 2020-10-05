@@ -22,7 +22,7 @@ public interface StandingMapper {
     @Mappings({
             @Mapping(target = "type", source = "standing.standingType"),
             @Mapping(target = "group", source = "standing.standingGroup"),
-            @Mapping( target = "table", source = "standing.leagueTable")
+            @Mapping(target = "table", source = "standing.leagueTable")
     })
     StandingDTO standingToStandingDto(Standing standing);
 

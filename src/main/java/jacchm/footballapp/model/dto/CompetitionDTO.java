@@ -7,14 +7,14 @@ import java.time.LocalDateTime;
 @Data
 public class CompetitionDTO {
 
-    private Integer id;
+    private int id;
     private AreaDTO area;
     private String name;
     private String code;
     private String ensignUrl;
     private String plan;
     private SeasonDTO currentSeason;
-    private Integer numberOfAvailableSeasons;
+    private int numberOfAvailableSeasons;
     private LocalDateTime lastUpdated;
 
 }
