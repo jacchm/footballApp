@@ -1,7 +1,6 @@
 package jacchm.footballapp.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import jacchm.footballapp.exceptions.NoFootballApiResponseException;
 import jacchm.footballapp.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

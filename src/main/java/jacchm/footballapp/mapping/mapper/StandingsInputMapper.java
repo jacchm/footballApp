@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* TODO: Simplify this interface. Mapstruct was not working correctly - some of the fields in the mapped objects were
-*        missing. Default methods have been added to map the classes correctly. */
+*        missing. Default methods have been added to map classes correctly. */
 
 @Mapper(componentModel = "spring")
 public interface StandingsInputMapper {

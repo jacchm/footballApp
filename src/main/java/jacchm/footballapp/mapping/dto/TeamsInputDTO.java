@@ -1,8 +1,5 @@
 package jacchm.footballapp.mapping.dto;
 
-import jacchm.footballapp.mapping.dto.CompetitionDTO;
-import jacchm.footballapp.mapping.dto.SeasonDTO;
-import jacchm.footballapp.mapping.dto.TeamDTO;
 import lombok.Data;
 
 import java.util.List;

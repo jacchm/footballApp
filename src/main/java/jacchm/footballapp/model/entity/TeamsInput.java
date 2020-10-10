@@ -11,8 +11,6 @@ import java.util.List;
 @Data
 public class TeamsInput {
 
-    @Id
-    @GeneratedValue
     private int count;
     @OneToOne
     private CompetitionDTO competition;
