@@ -26,4 +26,5 @@ public interface StandingMapper {
     })
     StandingDTO standingToStandingDto(Standing standing);
 
+
 }

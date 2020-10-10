@@ -17,4 +17,5 @@ public class CompetitionDTO {
     private int numberOfAvailableSeasons;
     private LocalDateTime lastUpdated;
 
+
 }

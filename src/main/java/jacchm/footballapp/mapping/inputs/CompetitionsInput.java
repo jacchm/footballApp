@@ -14,4 +14,5 @@ public class CompetitionsInput {
 //    private List<String> filters;
     private List<CompetitionDTO> competitions;
 
+
 }

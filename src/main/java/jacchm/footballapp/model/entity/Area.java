@@ -16,4 +16,5 @@ public class Area implements Serializable {
     private String countryCode;
     private String ensignUrl;
 
+
 }

@@ -1,4 +1,4 @@
-package jacchm.footballapp.servlet;
+package jacchm.footballapp.controller;
 
 import jacchm.footballapp.mapping.dto.TeamsInputDTO;
 import jacchm.footballapp.mapping.dto.TeamDTO;

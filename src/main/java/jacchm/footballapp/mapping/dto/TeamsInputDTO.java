@@ -11,4 +11,6 @@ public class TeamsInputDTO {
     private CompetitionDTO competition;
     private SeasonDTO season;
     private List<TeamDTO> teams;
+
+
 }

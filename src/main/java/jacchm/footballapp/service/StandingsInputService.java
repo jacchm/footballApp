@@ -95,5 +95,4 @@ public class StandingsInputService {
         return "Standings have been updated.";
     }
 
-
 }

@@ -13,4 +13,5 @@ public class SeasonDTO {
     private int currentMatchday;
     private TeamDTO winner;
 
+
 }

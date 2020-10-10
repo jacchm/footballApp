@@ -92,5 +92,4 @@ public class CompetitionService {
         return "Competitions have been updated";
     }
 
-
 }

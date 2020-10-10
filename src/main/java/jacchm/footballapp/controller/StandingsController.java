@@ -1,4 +1,4 @@
-package jacchm.footballapp.servlet;
+package jacchm.footballapp.controller;
 
 import jacchm.footballapp.mapping.dto.StandingsInputDTO;
 import jacchm.footballapp.repository.StandingInputRepository;

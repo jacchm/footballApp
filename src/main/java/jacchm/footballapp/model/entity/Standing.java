@@ -23,5 +23,6 @@ public class Standing implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     private List<TableInput> leagueTable;
 
+
 }
 

@@ -10,4 +10,5 @@ public class AreaDTO {
     private String countryCode;
     private String ensignUrl;
 
+
 }

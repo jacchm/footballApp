@@ -13,4 +13,5 @@ public interface AreaMapper {
     AreaDTO areaToAreaDto(Area area);
     Area areaDtoToArea(AreaDTO areaDTO);
 
+
 }

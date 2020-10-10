@@ -53,5 +53,6 @@ public class StandingDTO {
     public void setTable(List<TableInputDTO> table) {
         this.table = table;
     }
+
 }
 

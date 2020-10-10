@@ -1,4 +1,4 @@
-package jacchm.footballapp.servlet;
+package jacchm.footballapp.controller;
 
 import jacchm.footballapp.mapping.dto.CompetitionDTO;
 import jacchm.footballapp.service.CompetitionService;
@@ -37,8 +37,6 @@ public class CompetitionController {
     public CompetitionDTO getById(@PathVariable("id") Integer id) {
         return competitionService.getById(id);
     }
-
-
 
 }
 

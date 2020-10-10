@@ -225,4 +225,5 @@ public interface StandingsInputMapper {
         return area;
     }
 
+
 }

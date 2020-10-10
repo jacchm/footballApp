@@ -12,4 +12,5 @@ public class StandingsInputDTO {
     private SeasonDTO season;
     private List<StandingDTO> standings;
 
+
 }

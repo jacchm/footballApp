@@ -13,4 +13,5 @@ public interface TableInputMapper {
     TableInput TableInputDtoToTableInput(TableInputDTO tableInputDTO);
     TableInputDTO TableInputToTableInputDto(TableInput tableInput);
 
+
 }

@@ -97,5 +97,4 @@ public class ExternalFootballAPIService {
         out.close();
     }
 
-
 }

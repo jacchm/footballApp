@@ -7,5 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TeamRepository extends CrudRepository<Team, Integer> {
+
     Optional<List<Team>> findByAreaId (Integer areaId);
+
 }

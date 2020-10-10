@@ -13,4 +13,5 @@ public interface SeasonMapper {
     Season seasonDtoToSeason(SeasonDTO season);
     SeasonDTO seasonToSeasonDto(Season season);
 
+
 }

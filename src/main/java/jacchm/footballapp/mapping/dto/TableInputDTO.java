@@ -18,4 +18,5 @@ public class TableInputDTO {
     private Integer goalsAgainst;
     private Integer goalDifference;
 
+
 }

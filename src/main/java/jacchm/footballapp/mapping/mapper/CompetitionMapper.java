@@ -12,4 +12,5 @@ public interface CompetitionMapper {
 
     Competition competitionDtoToCompetition(CompetitionDTO competitionDTO);
     CompetitionDTO competitionToCompetitionDTO(Competition competition);
+
 }

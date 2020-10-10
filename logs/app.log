@@ -56,7 +56,7 @@
 2020-10-08 11:34:48,995 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at jacchm.footballapp.service.CompetitionService.updateCompetitions(CompetitionService.java:38)
-	at jacchm.footballapp.servlet.CompetitionServlet.updateCompetitionsFromFile(CompetitionServlet.java:28)
+	at jacchm.footballapp.controller.CompetitionServlet.updateCompetitionsFromFile(CompetitionServlet.java:28)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -140,7 +140,7 @@ java.lang.NullPointerException: null
 2020-10-08 11:39:32,954 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at jacchm.footballapp.service.CompetitionService.updateCompetitions(CompetitionService.java:38)
-	at jacchm.footballapp.servlet.CompetitionServlet.updateCompetitionsFromFile(CompetitionServlet.java:28)
+	at jacchm.footballapp.controller.CompetitionServlet.updateCompetitionsFromFile(CompetitionServlet.java:28)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -221,10 +221,10 @@ java.lang.NullPointerException: null
 2020-10-08 11:41:24,081 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
 2020-10-08 11:41:24,097 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
 2020-10-08 11:41:24,098 INFO org.apache.catalina.core.StandardService [main] Stopping service [Tomcat]
-2020-10-08 11:41:24,108 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+2020-10-08 11:41:24,108 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main]
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2020-10-08 11:41:24,219 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+2020-10-08 11:41:24,219 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main]
 
 ***************************
 APPLICATION FAILED TO START
@@ -256,7 +256,7 @@ Consider defining a bean of type 'java.io.File' in your configuration.
 2020-10-08 11:42:21,963 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-10-08 11:42:22,019 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2020-10-08 11:42:22,707 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-10-08 11:42:22,930 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-10-08 11:42:22,930 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositoriesï¿½
 2020-10-08 11:42:23,298 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
 2020-10-08 11:42:23,338 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
 2020-10-08 11:42:24,681 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
@@ -299,7 +299,7 @@ Consider defining a bean of type 'java.io.File' in your configuration.
 2020-10-08 11:42:52,528 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at jacchm.footballapp.service.CompetitionService.updateCompetitions(CompetitionService.java:39)
-	at jacchm.footballapp.servlet.CompetitionServlet.updateCompetitionsFromFile(CompetitionServlet.java:28)
+	at jacchm.footballapp.controller.CompetitionServlet.updateCompetitionsFromFile(CompetitionServlet.java:28)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -565,7 +565,7 @@ java.lang.NullPointerException: null
 2020-10-08 12:39:54,224 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at jacchm.footballapp.service.CompetitionService.getAll(CompetitionService.java:47)
-	at jacchm.footballapp.servlet.CompetitionServlet.getAll(CompetitionServlet.java:33)
+	at jacchm.footballapp.controller.CompetitionServlet.getAll(CompetitionServlet.java:33)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -649,7 +649,7 @@ java.lang.NullPointerException: null
 2020-10-08 12:41:50,749 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at jacchm.footballapp.service.CompetitionService.getAll(CompetitionService.java:47)
-	at jacchm.footballapp.servlet.CompetitionServlet.getAll(CompetitionServlet.java:33)
+	at jacchm.footballapp.controller.CompetitionServlet.getAll(CompetitionServlet.java:33)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -779,7 +779,7 @@ java.lang.NullPointerException: null
 2020-10-09 00:59:42,139 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-10-09 00:59:42,172 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2020-10-09 00:59:42,828 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-10-09 00:59:43,002 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-10-09 00:59:43,002 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositoriesï¿½
 2020-10-09 00:59:43,471 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
 2020-10-09 00:59:43,515 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
 2020-10-09 00:59:44,899 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

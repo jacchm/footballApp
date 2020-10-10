@@ -25,4 +25,6 @@ public class TableInput implements Serializable {
     private Integer goalsFor;
     private Integer goalsAgainst;
     private Integer goalDifference;
+
+
 }

@@ -25,4 +25,5 @@ public class Competition implements Serializable {
     private Integer numberOfAvailableSeasons;
     private LocalDateTime lastUpdated;
 
+
 }

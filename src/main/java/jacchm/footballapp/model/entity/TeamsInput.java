@@ -19,4 +19,6 @@ public class TeamsInput {
     private SeasonDTO season;
     @OneToMany(cascade = CascadeType.ALL)
     private List<TeamDTO> teams;
+
+
 }

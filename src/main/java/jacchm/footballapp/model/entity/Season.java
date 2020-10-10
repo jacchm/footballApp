@@ -21,4 +21,5 @@ public class Season implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     private Team winner;
 
+
 }

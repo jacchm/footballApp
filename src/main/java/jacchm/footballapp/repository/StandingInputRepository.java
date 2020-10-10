@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface StandingInputRepository extends CrudRepository<StandingsInput, Integer> {
 
     Optional<List<StandingsInput>> findByCompetition_Id(Integer id);
+
 }
