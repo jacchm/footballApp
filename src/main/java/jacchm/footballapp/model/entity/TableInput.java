@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Entity
 public class TableInput implements Serializable {
 
+    // think about composite key not the generated Integer id;
     @Id
     @GeneratedValue
     private Integer id;

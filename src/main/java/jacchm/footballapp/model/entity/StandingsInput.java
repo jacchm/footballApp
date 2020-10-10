@@ -12,6 +12,8 @@ public class StandingsInput implements Serializable{
 
 //    this is omitted because all standings are always necessary to get
 //    private List<String> filters;
+
+    // think about composite key not the generated Integer id;
     @Id
     @GeneratedValue
     private Integer id;

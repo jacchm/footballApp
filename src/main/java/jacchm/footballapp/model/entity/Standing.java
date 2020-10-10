@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 public class Standing implements Serializable {
 
+    // think about composite key not the generated Integer id;
     @Id
     @GeneratedValue
     private Integer id;

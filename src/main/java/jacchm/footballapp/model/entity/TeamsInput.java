@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 public class TeamsInput {
 
+    // think about composite key not the generated Integer id;
     private int count;
     @OneToOne
     private CompetitionDTO competition;
