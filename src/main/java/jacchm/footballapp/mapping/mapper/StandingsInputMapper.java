@@ -1,12 +1,15 @@
-package jacchm.footballapp.model.mapper;
+package jacchm.footballapp.mapping.mapper;
 
-import jacchm.footballapp.model.dto.*;
+import jacchm.footballapp.mapping.dto.*;
 import jacchm.footballapp.model.entity.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/* TODO: Simplify this interface. Mapstruct was not working correctly - some of the fields in the mapped objects were
+*        missing. Default methods have been added to map the classes correctly. */
 
 @Mapper(componentModel = "spring")
 public interface StandingsInputMapper {

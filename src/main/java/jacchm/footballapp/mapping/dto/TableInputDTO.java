@@ -1,4 +1,4 @@
-package jacchm.footballapp.model.dto;
+package jacchm.footballapp.mapping.dto;
 
 import lombok.Data;
 

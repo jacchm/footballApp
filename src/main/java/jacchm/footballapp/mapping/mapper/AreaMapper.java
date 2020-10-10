@@ -1,6 +1,6 @@
-package jacchm.footballapp.model.mapper;
+package jacchm.footballapp.mapping.mapper;
 
-import jacchm.footballapp.model.dto.AreaDTO;
+import jacchm.footballapp.mapping.dto.AreaDTO;
 import jacchm.footballapp.model.entity.Area;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

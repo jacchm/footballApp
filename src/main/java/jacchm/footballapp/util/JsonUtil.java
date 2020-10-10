@@ -6,6 +6,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class JsonUtil {
 
@@ -53,7 +54,6 @@ public class JsonUtil {
     public static String prettyPrint(JsonNode node) throws JsonProcessingException {
         return generateString(node, true);
     }
-
 
     private static String generateString(JsonNode node, boolean pretty) throws JsonProcessingException {
         ObjectWriter objectWriter = objectMapper.writer();

@@ -11,7 +11,7 @@ import java.util.List;
 public class Standing implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Integer id;
     private String stage;
     // json input 'type' - disallowed keyword in MySql

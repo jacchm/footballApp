@@ -1,9 +1,9 @@
 package jacchm.footballapp.servlet;
 
-import jacchm.footballapp.model.additional.TeamsInput;
-import jacchm.footballapp.model.dto.TeamDTO;
+import jacchm.footballapp.mapping.dto.TeamsInputDTO;
+import jacchm.footballapp.mapping.dto.TeamDTO;
 import jacchm.footballapp.model.entity.Team;
-import jacchm.footballapp.model.mapper.TeamMapper;
+import jacchm.footballapp.mapping.mapper.TeamMapper;
 import jacchm.footballapp.repository.TeamRepository;
 import jacchm.footballapp.util.JsonUtil;
 import lombok.AllArgsConstructor;
@@ -19,24 +19,24 @@ import java.io.IOException;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/teams")
-public class TeamsServlet {
+public class TeamsController {
 
     TeamRepository teamRepository;
 
-    private final Logger logger = LoggerFactory.getLogger(TeamsServlet.class);
+    private final Logger logger = LoggerFactory.getLogger(TeamsController.class);
 
-    @GetMapping("/updateFromFile")
+    @GetMapping("/updateAll")
     public String updateTeamDataBaseFromFile() {
         File file = new File("D:\\JavaProjects\\footballapp\\src\\main\\" +
-                "resources\\dataFromExternalApi\\PremierLeagueTeams.json");
-        TeamsInput teamsInput;
+                "resources\\dataFromExternalApi\\2021Teams.json");
+        TeamsInputDTO teamsInputDTO;
         try {
-            teamsInput = JsonUtil.fromJsonFile(file, TeamsInput.class);
+            teamsInputDTO = JsonUtil.fromJsonFile(file, TeamsInputDTO.class);
 
 //            System.out.println("CompetitionsInputDTO " + teamsInput.getCount() + "   " + teamsInput.get());
 //            System.out.println("CompetitionsInputDTO is list empty: " + teamsInput.getTeams().isEmpty());
 
-            for (TeamDTO teamDTO : teamsInput.getTeams()) {
+            for (TeamDTO teamDTO : teamsInputDTO.getTeams()) {
                 Team team = TeamMapper.INSTANCE.teamDtoToTeam(teamDTO);
                 teamRepository.save(team);
             }

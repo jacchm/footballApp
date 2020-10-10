@@ -1,6 +1,6 @@
-package jacchm.footballapp.model.mapper;
+package jacchm.footballapp.mapping.mapper;
 
-import jacchm.footballapp.model.dto.TableInputDTO;
+import jacchm.footballapp.mapping.dto.TableInputDTO;
 import jacchm.footballapp.model.entity.TableInput;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

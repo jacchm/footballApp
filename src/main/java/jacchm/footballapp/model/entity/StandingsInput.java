@@ -13,7 +13,7 @@ public class StandingsInput implements Serializable{
 //    this is omitted because all standings are always necessary to get
 //    private List<String> filters;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Integer id;
     @OneToOne
     private Competition competition;

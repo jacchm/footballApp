@@ -1,6 +1,6 @@
-package jacchm.footballapp.model.additional;
+package jacchm.footballapp.mapping.inputs;
 
-import jacchm.footballapp.model.dto.CompetitionDTO;
+import jacchm.footballapp.mapping.dto.CompetitionDTO;
 import lombok.Data;
 
 import java.util.List;
