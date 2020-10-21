@@ -3,11 +3,12 @@ package jacchm.footballapp.mapping.dto;
 import lombok.Data;
 
 @Data
-public class TableInputDTO {
+public class LeagueTablePositionDTO {
 
-    private Integer id;
-    private Integer position;
+    private Integer competitionId;
+    private String type;
     private TeamDTO team;
+    private Integer position;
     private Integer playedGames;
     private String form;
     private Integer won;
@@ -17,6 +18,5 @@ public class TableInputDTO {
     private Integer goalsFor;
     private Integer goalsAgainst;
     private Integer goalDifference;
-
 
 }

@@ -2,8 +2,11 @@ package jacchm.footballapp.model.entity;
 
 import lombok.Data;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -21,7 +24,6 @@ public class Competition implements Serializable {
     private String plan;
     @OneToOne(cascade = CascadeType.ALL)
     private Season currentSeason;
-    @NotNull
     private Integer numberOfAvailableSeasons;
     private LocalDateTime lastUpdated;
 

@@ -1,0 +1,17 @@
+spring:
+  # spring jpa
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+# spring database mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/footballapp?serverTimezone=CET
+    username: devuser
+    password: 2252526j
+
+# external API token
+AUTH_TOKEN: 641dd694283241309d4549a804a9757e
+# list of competitions to be followed; change the format and configure Annotation Processor in the future
+COMPETITIONS_ID: 2021,2019,2015,2014,2002

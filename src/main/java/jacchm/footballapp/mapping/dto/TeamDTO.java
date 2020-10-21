@@ -7,7 +7,7 @@ import java.time.LocalDate;
 @Data
 public class TeamDTO {
 
-    private int id;
+    private Integer id;
     private AreaDTO area;
     private String name;
     private String shortName;
@@ -21,6 +21,6 @@ public class TeamDTO {
     private String clubColors;
     private String venue;
     private LocalDate lastUpdated;
-
+    private Integer competitionId;
 
 }

@@ -2,31 +2,30 @@ package jacchm.footballapp.controller;
 
 import jacchm.footballapp.mapping.dto.CompetitionDTO;
 import jacchm.footballapp.service.CompetitionService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/competitions")
 public class CompetitionController {
 
-    private CompetitionService competitionService;
+    private final CompetitionService competitionService;
 
-    // method below should be only used by Admins
+    // TODO: method below should be only used by Admins
     @GetMapping("/updateAll")
-    public String updateFromFile() {
-        return competitionService.updateCompetitions();
+    public boolean updateAll() {
+        return competitionService.updateAll();
     }
 
-    // method below should be only used by Admins
+    // TODO: method below should be only used by Admins
     @DeleteMapping("/deleteAll")
-    public String deleteAllFromDataBase() {
+    public boolean deleteAllFromDataBase() {
         return competitionService.deleteAll();
     }
-
 
     @GetMapping("/get/all")
     public List<CompetitionDTO> getAll() {

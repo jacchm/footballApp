@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class AreaDTO {
 
-    private int id;
+    private Integer id;
     private String name;
     private String countryCode;
     private String ensignUrl;

@@ -1,24 +1,19 @@
-package jacchm.footballapp.model.entity;
+package jacchm.footballapp.mapping.inputs;
 
 import jacchm.footballapp.mapping.dto.CompetitionDTO;
 import jacchm.footballapp.mapping.dto.SeasonDTO;
 import jacchm.footballapp.mapping.dto.TeamDTO;
 import lombok.Data;
 
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 public class TeamsInput {
 
-    // think about composite key not the generated Integer id;
     private int count;
-    @OneToOne
     private CompetitionDTO competition;
-    @OneToOne
     private SeasonDTO season;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<TeamDTO> teams;
-
+    private List<TeamDTO> teams = new ArrayList<>();
 
 }

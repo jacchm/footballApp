@@ -2,20 +2,17 @@ package jacchm.footballapp.model.entity;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import java.io.Serializable;
 
 @Data
 @Entity
-public class TableInput implements Serializable {
+public class LeagueTablePosition implements Serializable {
 
-    // think about composite key not the generated Integer id;
-    @Id
-    @GeneratedValue
-    private Integer id;
+    @EmbeddedId
+    private LeagueTablePositionId leagueTablePositionId;
     private Integer position;
-    @OneToOne
-    private Team team;
     private Integer playedGames;
     private String form;
     private Integer won;
@@ -25,6 +22,5 @@ public class TableInput implements Serializable {
     private Integer goalsFor;
     private Integer goalsAgainst;
     private Integer goalDifference;
-
 
 }

@@ -1,100 +1,79 @@
 package jacchm.footballapp.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import jacchm.footballapp.util.JsonUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import jacchm.footballapp.customexceptions.ExternalFootballApiConnectionException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import javax.annotation.PostConstruct;
+import java.net.URI;
+import java.text.MessageFormat;
+import java.util.Date;
 
+@Slf4j
 @Service
 public class ExternalFootballAPIService {
 
     private final String FOOTBALL_API_URL = "http://api.football-data.org";
-    private final String httpMethod = "GET";
-
-    private final String AUTH_TOKEN = "641dd694283241309d4549a804a9757e";
+    private final HttpMethod HTTP_METHOD = HttpMethod.GET;
+    private final String AUTH_TOKEN;
     private final String AUTH_HEADER = "X-Auth-Token";
 
-    private final Logger logger = LoggerFactory.getLogger(ExternalFootballAPIService.class);
+    public ExternalFootballAPIService(@Value("${AUTH_TOKEN}") String auth_token) {
+        AUTH_TOKEN = auth_token;
+    }
 
-    public String getCompetitions() throws IOException {
+    @PostConstruct
+    private void printConfig() {
+        log.info("AUTH_TOKEN: " + AUTH_TOKEN);
+    }
+
+    public String getCompetitions() throws ExternalFootballApiConnectionException {
         String url = FOOTBALL_API_URL + "/v2/competitions/";
-        URL obj = new URL(url);
 
-        String fileName = "AllCompetitions";
-
-        return getResponse(obj, fileName);
+        return getResponse(getRequestEntity(url));
     }
 
-    public String getTeams(int competitionId) throws IOException {
-        String url = FOOTBALL_API_URL + "/v2/competitions/" + competitionId + "/teams";
-        URL obj = new URL(url);
+    public String getTeams(int competitionId) throws ExternalFootballApiConnectionException {
+        String url = MessageFormat.format(FOOTBALL_API_URL + "/v2/competitions/{0}/teams",
+                Integer.toString(competitionId));
 
-        String fileName = competitionId + "Teams";
-
-        return getResponse(obj, fileName);
+        return getResponse(getRequestEntity(url));
     }
 
-    public String getStandings(int competitionId) throws IOException {
-        String url = FOOTBALL_API_URL + "/v2/competitions/" + competitionId + "/standings";
-        logger.info(url + " request has been sent.");
-        URL obj = new URL(url);
+    public String getStandings(int competitionId) throws ExternalFootballApiConnectionException {
+        String url = MessageFormat.format(FOOTBALL_API_URL + "/v2/competitions/{0}/standings",
+                Integer.toString(competitionId));
 
-        String fileName = competitionId + "Standings";
-        return getResponse(obj, fileName);
+        return getResponse(getRequestEntity(url));
     }
 
-    private String getResponse(URL obj, String fileName) throws IOException {
+    private String getResponse(RequestEntity request) throws ExternalFootballApiConnectionException {
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.exchange(request, String.class);
+        log.info("Request to external API has been sent. " + new Date());
 
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        // setting for HttpURLConnection
-        con.setRequestMethod(httpMethod);
-        con.setRequestProperty(AUTH_HEADER, AUTH_TOKEN);
-
-        // logs from request
-        logger.info("Request to external API has been sent.");
-
-        // handle error response code if occurs
-        int responseCode = con.getResponseCode();
-        logger.info("Response code: " + responseCode);
-
-        InputStream inputStream;
-        if (200 <= responseCode && responseCode <= 299) {
-            inputStream = con.getInputStream();
-        } else {
-            throw new IOException();
+        int responseCode = response.getStatusCodeValue();
+        if (responseCode < 200 || responseCode > 299) {
+            throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
+                    "Response status: " + responseCode);
         }
 
-        // reading response and building respond string
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
-        StringBuilder response = new StringBuilder();
-        String currentLine;
-
-        while ((currentLine = bufferedReader.readLine()) != null)
-            response.append(currentLine);
-        bufferedReader.close();
-
-        // saving the response to file
-        saveToFile(response.toString(), fileName);
-        logger.info("Backup file has been done.");
-
-        return response.toString();
+        return response.getBody();
     }
 
-    private void saveToFile(String jsonInput, String fileName) throws FileNotFoundException {
+    private RequestEntity getRequestEntity(String url) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(AUTH_HEADER, AUTH_TOKEN);
 
-        PrintWriter out = new PrintWriter("src/main/resources/dataFromExternalApi/" + fileName + ".json");
-        try {
-            out.print(JsonUtil.prettyPrint(JsonUtil.toJson(JsonUtil.parse(jsonInput))));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        out.close();
+        RequestEntity requestEntity = new RequestEntity(headers, HTTP_METHOD, URI.create(url));
+
+        return requestEntity;
     }
 
 }

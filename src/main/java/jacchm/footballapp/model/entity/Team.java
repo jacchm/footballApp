@@ -2,7 +2,6 @@ package jacchm.footballapp.model.entity;
 
 import lombok.Data;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -11,7 +10,6 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Embeddable
 public class Team implements Serializable {
 
     @Id
@@ -30,6 +28,6 @@ public class Team implements Serializable {
     private String clubColors;
     private String venue;
     private LocalDate lastUpdated;
-
+    private Integer competitionID;
 
 }
