@@ -9,6 +9,7 @@ import jacchm.footballapp.mapping.inputs.StandingsListInput;
 import jacchm.footballapp.mapping.mapper.LeagueTablePositionMapper;
 import jacchm.footballapp.model.entity.LeagueTablePosition;
 import jacchm.footballapp.repository.LeagueTablePositionRepository;
+import jacchm.footballapp.service.FootballDataOrgService;
 import jacchm.footballapp.service.ResultsService;
 import jacchm.footballapp.util.JsonUtil;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +25,7 @@ import java.util.List;
 @Service
 public class ResultsServiceImpl implements ResultsService {
 
-    private final ExternalFootballAPIService externalFootballAPIService;
+    private final FootballDataOrgService footballDataOrgService;
     private final LeagueTablePositionRepository leagueTablePositionRepository;
     private final LeagueTablePositionMapper leagueTablePositionMapper;
 
@@ -56,7 +57,7 @@ public class ResultsServiceImpl implements ResultsService {
         for (int i = 0; i < competitionIdList.size(); i++) {
 
             try {
-                JsonNode node = JsonUtil.parse(externalFootballAPIService.getResults(competitionIdList.get(i)));
+                JsonNode node = JsonUtil.parse(footballDataOrgService.getResults(competitionIdList.get(i)));
                 StandingsListInput standingsListInput = JsonUtil.fromJson(node, StandingsListInput.class);
 
                 saveInDataBase(standingsListInput);

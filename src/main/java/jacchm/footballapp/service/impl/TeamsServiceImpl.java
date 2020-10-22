@@ -8,6 +8,7 @@ import jacchm.footballapp.mapping.inputs.TeamsInput;
 import jacchm.footballapp.mapping.mapper.TeamMapper;
 import jacchm.footballapp.model.entity.Team;
 import jacchm.footballapp.repository.TeamRepository;
+import jacchm.footballapp.service.FootballDataOrgService;
 import jacchm.footballapp.service.TeamsService;
 import jacchm.footballapp.util.JsonUtil;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ import java.util.List;
 @Service
 public class TeamsServiceImpl implements TeamsService {
 
-    private final ExternalFootballAPIService externalFootballAPIService;
+    private final FootballDataOrgService footballDataOrgService;
 
     private final TeamRepository teamRepository;
     private final TeamMapper teamMapper;
@@ -58,7 +59,7 @@ public class TeamsServiceImpl implements TeamsService {
         for (int i = 0; i < competitionIdList.size(); i++) {
             int competitionId = competitionIdList.get(i);
             try {
-                JsonNode node = JsonUtil.parse(externalFootballAPIService.getTeams(competitionId));
+                JsonNode node = JsonUtil.parse(footballDataOrgService.getTeams(competitionId));
                 TeamsInput teamsInput = JsonUtil.fromJson(node, TeamsInput.class);
 
                 saveInDataBase(teamsInput);

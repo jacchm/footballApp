@@ -9,6 +9,7 @@ import jacchm.footballapp.model.entity.Competition;
 import jacchm.footballapp.mapping.mapper.CompetitionMapper;
 import jacchm.footballapp.repository.CompetitionRepository;
 import jacchm.footballapp.service.CompetitionService;
+import jacchm.footballapp.service.FootballDataOrgService;
 import jacchm.footballapp.util.JsonUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,7 @@ import java.util.List;
 public class CompetitionServiceImpl implements CompetitionService {
 
     private final CompetitionRepository competitionRepository;
-    private final ExternalFootballAPIService externalFootballAPIService;
+    private final FootballDataOrgService footballDataOrgService;
     private final CompetitionMapper competitionMapper;
 
     @Override
@@ -50,7 +51,7 @@ public class CompetitionServiceImpl implements CompetitionService {
     public boolean updateAll() {
 
         try {
-            JsonNode node = JsonUtil.parse(externalFootballAPIService.getCompetitions());
+            JsonNode node = JsonUtil.parse(footballDataOrgService.getCompetitions());
             CompetitionsInput competitionsInputDTO = JsonUtil.fromJson(node, CompetitionsInput.class);
 
             saveInDataBase(competitionsInputDTO);

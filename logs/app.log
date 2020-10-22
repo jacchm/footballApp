@@ -7371,3 +7371,90 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'team_id' cannot be nu
 2020-10-22 11:30:27,009 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-10-22 11:30:27,009 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
 2020-10-22 11:30:27,016 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 7 ms
+2020-10-22 14:03:16,200 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-10-22 14:03:16,212 INFO jacchm.footballapp.FootballappApplication [main] Starting FootballappApplication on DESKTOP-4VOUBH7 with PID 24700 (D:\JavaProjects\footballapp\target\classes started by biuro in D:\JavaProjects\footballapp)
+2020-10-22 14:03:16,214 INFO jacchm.footballapp.FootballappApplication [main] No active profile set, falling back to default profiles: default
+2020-10-22 14:03:16,850 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-10-22 14:03:16,920 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 63ms. Found 5 JPA repository interfaces.
+2020-10-22 14:03:17,326 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2020-10-22 14:03:17,335 INFO org.apache.coyote.http11.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-22 14:03:17,335 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2020-10-22 14:03:17,335 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-22 14:03:17,436 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2020-10-22 14:03:17,436 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1179 ms
+2020-10-22 14:03:17,548 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-22 14:03:17,586 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-22 14:03:17,629 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-10-22 14:03:17,642 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-22 14:03:17,727 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-22 14:03:17,816 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-10-22 14:03:17,969 INFO org.apache.coyote.http11.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-22 14:03:17,999 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-22 14:03:18,000 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-10-22 14:03:18,171 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-10-22 14:03:18,186 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-22 14:03:18,889 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-22 14:03:18,896 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-22 14:03:19,109 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-10-22 14:03:19,118 INFO jacchm.footballapp.FootballappApplication [main] Started FootballappApplication in 3.265 seconds (JVM running for 5.336)
+2020-10-22 14:03:27,003 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-22 14:03:27,003 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-10-22 14:03:27,011 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 8 ms
+2020-10-22 14:06:46,670 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-10-22 14:06:46,688 INFO jacchm.footballapp.FootballappApplication [main] Starting FootballappApplication on DESKTOP-4VOUBH7 with PID 9012 (D:\JavaProjects\footballapp\target\classes started by biuro in D:\JavaProjects\footballapp)
+2020-10-22 14:06:46,690 INFO jacchm.footballapp.FootballappApplication [main] No active profile set, falling back to default profiles: default
+2020-10-22 14:06:47,323 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-10-22 14:06:47,391 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 61ms. Found 5 JPA repository interfaces.
+2020-10-22 14:06:47,778 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2020-10-22 14:06:47,786 INFO org.apache.coyote.http11.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-22 14:06:47,786 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2020-10-22 14:06:47,787 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-22 14:06:47,962 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2020-10-22 14:06:47,962 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1225 ms
+2020-10-22 14:06:48,075 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-22 14:06:48,110 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-22 14:06:48,150 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-10-22 14:06:48,161 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-22 14:06:48,247 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-22 14:06:48,330 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-10-22 14:06:48,471 INFO org.apache.coyote.http11.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-22 14:06:48,496 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-22 14:06:48,497 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-10-22 14:06:48,660 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-10-22 14:06:48,676 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-22 14:06:49,350 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-22 14:06:49,356 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-22 14:06:49,572 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-10-22 14:06:49,581 INFO jacchm.footballapp.FootballappApplication [main] Started FootballappApplication in 3.292 seconds (JVM running for 4.564)
+2020-10-22 14:06:57,729 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-22 14:06:57,730 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-10-22 14:06:57,738 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 8 ms
+2020-10-22 22:21:02,871 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h53m13s809ms67µs900ns).
+2020-10-22 22:27:32,935 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [jacchm.footballapp.FootballappApplicationTests], using SpringBootContextLoader
+2020-10-22 22:27:32,942 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [jacchm.footballapp.FootballappApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-10-22 22:27:32,944 INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [jacchm.footballapp.FootballappApplicationTests]: FootballappApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-10-22 22:27:33,075 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration jacchm.footballapp.FootballappApplication for test class jacchm.footballapp.FootballappApplicationTests
+2020-10-22 22:27:33,193 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-10-22 22:27:33,227 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6a66a204, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5860f3d7, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1d7f7be7, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@42f3156d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ddae9b5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@427b5f92, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@24bdb479, org.springframework.test.context.event.EventPublishingTestExecutionListener@7e3f95fe, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@34625ccd, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2c7d121c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@65aa6596, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@67389cb8, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@419a20a6, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@533377b]
+2020-10-22 22:27:33,574 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-10-22 22:27:33,599 INFO jacchm.footballapp.FootballappApplicationTests [main] Starting FootballappApplicationTests on DESKTOP-4VOUBH7 with PID 26088 (started by biuro in D:\JavaProjects\footballapp)
+2020-10-22 22:27:33,600 INFO jacchm.footballapp.FootballappApplicationTests [main] No active profile set, falling back to default profiles: default
+2020-10-22 22:27:34,509 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-10-22 22:27:34,606 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 89ms. Found 5 JPA repository interfaces.
+2020-10-22 22:27:35,255 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-22 22:27:35,332 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-22 22:27:35,408 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-10-22 22:27:35,594 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-22 22:27:35,669 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-22 22:27:36,237 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-10-22 22:27:36,442 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories�
+2020-10-22 22:27:36,767 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-10-22 22:27:36,814 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-10-22 22:27:37,974 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-22 22:27:37,985 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-22 22:27:38,649 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-10-22 22:27:38,678 INFO jacchm.footballapp.FootballappApplicationTests [main] Started FootballappApplicationTests in 5.401 seconds (JVM running for 7.442)
+2020-10-22 22:27:39,347 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-22 22:27:39,358 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-22 22:27:39,362 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-10-22 22:27:39,430 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
