@@ -15,7 +15,7 @@ public class CompetitionController {
 
     private final CompetitionService competitionService;
 
-    // TODO: method below should be only used by Admins
+    // TODO: scheduled or done manually by admin
     @GetMapping("/updateAll")
     public boolean updateAll() {
         return competitionService.updateAll();

@@ -2,6 +2,7 @@ package jacchm.footballapp.model.entity;
 
 import lombok.Data;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -14,7 +15,7 @@ public class Team implements Serializable {
 
     @Id
     private Integer id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Area area;
     private String name;
     private String shortName;
@@ -28,6 +29,6 @@ public class Team implements Serializable {
     private String clubColors;
     private String venue;
     private LocalDate lastUpdated;
-    private Integer competitionID;
+    private Integer competitionId;
 
 }

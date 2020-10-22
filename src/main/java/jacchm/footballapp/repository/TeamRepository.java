@@ -10,6 +10,6 @@ import java.util.List;
 public interface TeamRepository extends CrudRepository<Team, Integer> {
 
 //    List<Team> findByAreaId(Integer areaId);
-    List<Team> findByCompetitionID(Integer competitionId);
+    List<Team> findByCompetitionId(Integer competitionId);
 
 }

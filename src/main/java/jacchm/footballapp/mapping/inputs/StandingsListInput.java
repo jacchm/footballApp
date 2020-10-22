@@ -10,7 +10,6 @@ import java.util.List;
 @Data
 public class StandingsListInput {
 
-    private Integer id;
     private CompetitionDTO competition;
     private SeasonDTO season;
     private List<SingleStandingInput> standings = new ArrayList<>();

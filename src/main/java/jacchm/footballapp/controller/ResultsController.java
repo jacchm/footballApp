@@ -14,7 +14,7 @@ public class ResultsController {
 
     private final ResultsService resultsService;
 
-    // TODO: method below should be only used by Admins
+    // TODO: scheduled or done manually by admin
     @GetMapping("/updateAll")
     public boolean updateAll() {
        return resultsService.updateAll();
@@ -26,12 +26,9 @@ public class ResultsController {
         return resultsService.deleteAll();
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/getLeagueResults/{id}")
     public List<LeagueTablePositionDTO> getLeagueAllResults(@PathVariable("id") Integer id){
         return resultsService.getLeagueAllResults(id);
     }
-
-
-
 
 }

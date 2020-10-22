@@ -1,4 +1,4 @@
-package jacchm.footballapp.service;
+package jacchm.footballapp.service.impl;
 
 import jacchm.footballapp.customexceptions.ExternalFootballApiConnectionException;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.PostConstruct;
 import java.net.URI;
 import java.text.MessageFormat;
 import java.util.Date;
@@ -28,11 +27,6 @@ public class ExternalFootballAPIService {
         AUTH_TOKEN = auth_token;
     }
 
-    @PostConstruct
-    private void printConfig() {
-        log.info("AUTH_TOKEN: " + AUTH_TOKEN);
-    }
-
     public String getCompetitions() throws ExternalFootballApiConnectionException {
         String url = FOOTBALL_API_URL + "/v2/competitions/";
 
@@ -46,7 +40,7 @@ public class ExternalFootballAPIService {
         return getResponse(getRequestEntity(url));
     }
 
-    public String getStandings(int competitionId) throws ExternalFootballApiConnectionException {
+    public String getResults(int competitionId) throws ExternalFootballApiConnectionException {
         String url = MessageFormat.format(FOOTBALL_API_URL + "/v2/competitions/{0}/standings",
                 Integer.toString(competitionId));
 
