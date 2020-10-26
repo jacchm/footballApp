@@ -1,5 +1,5 @@
 spring:
-  # spring jpa
+# spring jpa
   jpa:
     show-sql: true
     hibernate:
@@ -10,6 +10,8 @@ spring:
     url: jdbc:mysql://localhost:3306/footballapp?serverTimezone=CET
     username: devuser
     password: 2252526j
+
+
 
 # external API token
 AUTH_TOKEN: 641dd694283241309d4549a804a9757e

@@ -5,23 +5,18 @@ import jacchm.footballapp.model.entity.LeagueTablePosition;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring", uses = TeamMapper.class, injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface LeagueTablePositionMapper {
 
-    @Mappings({
-            @Mapping(target = "leagueTablePositionId.competitionId", source = "leagueTablePositionDTO.competitionId"),
-            @Mapping(target = "leagueTablePositionId.standingType", source = "leagueTablePositionDTO.type"),
-            @Mapping(target = "leagueTablePositionId.team", source = "leagueTablePositionDTO.team"),
-    })
-    LeagueTablePosition leagueTablePositionDTOToLeagueTablePosition(LeagueTablePositionDTO leagueTablePositionDTO);
+    @Mapping(target = "leagueTablePositionId.competitionId", source = "competitionId")
+    @Mapping(target = "leagueTablePositionId.standingType", source = "type")
+    @Mapping(target = "leagueTablePositionId.team", source = "team")
+    LeagueTablePosition mapToLeagueTablePosition(LeagueTablePositionDTO leagueTablePositionDTO);
 
-    @Mappings({
-            @Mapping(target = "competitionId", source = "leagueTablePosition.leagueTablePositionId.competitionId"),
-            @Mapping(target = "type", source = "leagueTablePosition.leagueTablePositionId.standingType"),
-            @Mapping(target = "team", source = "leagueTablePosition.leagueTablePositionId.team"),
-    })
-    LeagueTablePositionDTO leagueTablePositionToLeagueTablePositionDTO(LeagueTablePosition leagueTablePosition);
+    @Mapping(target = "competitionId", source = "leagueTablePositionId.competitionId")
+    @Mapping(target = "type", source = "leagueTablePositionId.standingType")
+    @Mapping(target = "team", source = "leagueTablePositionId.team")
+    LeagueTablePositionDTO mapToLeagueTablePositionDTO(LeagueTablePosition leagueTablePosition);
 
 }

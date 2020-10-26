@@ -28,27 +28,26 @@ public class CompetitionServiceImpl implements CompetitionService {
     private final CompetitionMapper competitionMapper;
 
     @Override
-    public boolean deleteAll() {
+    public void deleteAll() {
         competitionRepository.deleteAll();
-        return true;
     }
 
     @Override
     public List<CompetitionDTO> getAll() {
         List<CompetitionDTO> allCompetitionsDTO = new ArrayList<>();
         for (Competition competition : competitionRepository.findAll()) {
-            allCompetitionsDTO.add(competitionMapper.competitionToCompetitionDTO(competition));
+            allCompetitionsDTO.add(competitionMapper.mapToCompetitionDTO(competition));
         }
         return allCompetitionsDTO;
     }
 
     public CompetitionDTO getById(Integer id) {
-        return competitionMapper.competitionToCompetitionDTO(
+        return competitionMapper.mapToCompetitionDTO(
                 competitionRepository.findById(id).orElse(new Competition()));
     }
 
     @Override
-    public boolean updateAll() {
+    public void updateAll() {
 
         try {
             JsonNode node = JsonUtil.parse(footballDataOrgService.getCompetitions());
@@ -62,12 +61,11 @@ public class CompetitionServiceImpl implements CompetitionService {
             log.error("Error has been encountered when connecting to external football API.", e);
         }
 
-        return true;
     }
 
     private void saveInDataBase(CompetitionsInput competitionsInputDTO){
         for (CompetitionDTO competitionDTO : competitionsInputDTO.getCompetitions()) {
-            Competition competition = competitionMapper.competitionDtoToCompetition(competitionDTO);
+            Competition competition = competitionMapper.mapToCompetition(competitionDTO);
             competitionRepository.save(competition);
         }
         log.info("Competitions update completed.");

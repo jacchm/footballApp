@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface TeamMapper {
 
-    Team teamDtoToTeam(TeamDTO teamDTO);
-    TeamDTO teamToTeamDto(Team team);
+    Team mapToTeam(TeamDTO teamDTO);
+    TeamDTO mapToTeamDto(Team team);
 
 }

@@ -45,7 +45,21 @@ public class ResultsServiceImpl implements ResultsService {
         List<LeagueTablePosition> allLeagueResults = leagueTablePositionRepository.findByLeagueTablePositionId_CompetitionId(competitionId);
 
         for (LeagueTablePosition leagueTablePosition: allLeagueResults) {
-            leagueResults.add(leagueTablePositionMapper.leagueTablePositionToLeagueTablePositionDTO(leagueTablePosition));
+            leagueResults.add(leagueTablePositionMapper.mapToLeagueTablePositionDTO(leagueTablePosition));
+        }
+
+        return leagueResults;
+    }
+
+    @Override
+    public List<LeagueTablePositionDTO> getLeagueResultsOfType(Integer competitionId, String type) {
+
+        List<LeagueTablePositionDTO> leagueResults = new ArrayList<>();
+        List<LeagueTablePosition> allLeagueResults = leagueTablePositionRepository
+                .findByLeagueTablePositionId_CompetitionIdAndLeagueTablePositionId_StandingTypeOrderByPosition(competitionId, type);
+
+        for (LeagueTablePosition leagueTablePosition: allLeagueResults) {
+            leagueResults.add(leagueTablePositionMapper.mapToLeagueTablePositionDTO(leagueTablePosition));
         }
 
         return leagueResults;
@@ -85,7 +99,7 @@ public class ResultsServiceImpl implements ResultsService {
                 leagueTablePositionDTO.setCompetitionId(competitionId);
 
                 leagueTablePositionRepository.save(
-                        leagueTablePositionMapper.leagueTablePositionDTOToLeagueTablePosition(leagueTablePositionDTO));
+                        leagueTablePositionMapper.mapToLeagueTablePosition(leagueTablePositionDTO));
             }
 
         } // end of for loop

@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface CompetitionService {
 
-    boolean deleteAll();
-    boolean updateAll();
+    void deleteAll();
+    void updateAll();
     List<CompetitionDTO> getAll();
     CompetitionDTO getById(Integer id);
 

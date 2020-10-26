@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface TeamsService {
 
-    boolean deleteAll();
-    boolean updateAll();
+    void deleteAll();
+    void updateAll();
     List<TeamDTO> getAllLeagueTeams(Integer competitionId);
     TeamDTO getTeam(Integer teamId);
 

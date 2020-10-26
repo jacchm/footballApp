@@ -33,9 +33,8 @@ public class TeamsServiceImpl implements TeamsService {
     private final List<Integer> competitionIdList;
 
     @Override
-    public boolean deleteAll() {
+    public void deleteAll() {
         teamRepository.deleteAll();
-        return true;
     }
 
     @Override
@@ -43,7 +42,7 @@ public class TeamsServiceImpl implements TeamsService {
         List<TeamDTO> allLeagueTeamsDTO = new ArrayList<>();
 
         for (Team team : teamRepository.findByCompetitionId(competitionId)) {
-            allLeagueTeamsDTO.add(teamMapper.teamToTeamDto(team));
+            allLeagueTeamsDTO.add(teamMapper.mapToTeamDto(team));
         }
 
         return allLeagueTeamsDTO;
@@ -51,11 +50,11 @@ public class TeamsServiceImpl implements TeamsService {
 
     @Override
     public TeamDTO getTeam(Integer teamId) {
-        return teamMapper.teamToTeamDto(teamRepository.findById(teamId).orElse(new Team()));
+        return teamMapper.mapToTeamDto(teamRepository.findById(teamId).orElse(new Team()));
     }
 
     @Override
-    public boolean updateAll() {
+    public void updateAll() {
         for (int i = 0; i < competitionIdList.size(); i++) {
             int competitionId = competitionIdList.get(i);
             try {
@@ -65,22 +64,19 @@ public class TeamsServiceImpl implements TeamsService {
                 saveInDataBase(teamsInput);
             } catch (JsonProcessingException e) {
                 log.error("Error has been encountered during JSON parsing. Competition id: " + competitionId, e);
-                return false;
             } catch (ExternalFootballApiConnectionException e) {
                 log.error("Error has been encountered when connecting to external football API. Competition id: " +
                         competitionId, e);
-                return false;
             }
         }
 
-        return true;
     }
 
     private void saveInDataBase(TeamsInput teamsInput) {
         Integer competitionId = teamsInput.getCompetition().getId();
         for (TeamDTO teamDTO : teamsInput.getTeams()) {
             teamDTO.setCompetitionId(competitionId);
-            Team team = teamMapper.teamDtoToTeam(teamDTO);
+            Team team = teamMapper.mapToTeam(teamDTO);
             teamRepository.save(team);
         }
 

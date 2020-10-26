@@ -7,8 +7,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface AreaMapper {
 
-    AreaDTO areaToAreaDto(Area area);
-    Area areaDtoToArea(AreaDTO areaDTO);
-
+    AreaDTO mapToAreaDto(Area area);
+    Area mapToArea(AreaDTO areaDTO);
 
 }

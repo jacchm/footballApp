@@ -3,6 +3,7 @@ package jacchm.footballapp.controller;
 import jacchm.footballapp.mapping.dto.CompetitionDTO;
 import jacchm.footballapp.service.CompetitionService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,23 +17,25 @@ public class CompetitionController {
     private final CompetitionService competitionService;
 
     // TODO: scheduled or done manually by admin
-    @GetMapping("/updateAll")
-    public boolean updateAll() {
-        return competitionService.updateAll();
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/update")
+    public void updateAll() {
+        competitionService.updateAll();
     }
 
     // TODO: method below should be only used by Admins
-    @DeleteMapping("/deleteAll")
-    public boolean deleteAllFromDataBase() {
-        return competitionService.deleteAll();
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("/delete")
+    public void deleteAllFromDataBase() {
+        competitionService.deleteAll();
     }
 
-    @GetMapping("/get/all")
+    @GetMapping
     public List<CompetitionDTO> getAll() {
         return competitionService.getAll();
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public CompetitionDTO getById(@PathVariable("id") Integer id) {
         return competitionService.getById(id);
     }
