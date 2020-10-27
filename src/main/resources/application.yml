@@ -1,11 +1,11 @@
 spring:
-# spring jpa
+  # spring jpa
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
 
-# spring database mysql
+  # spring database mysql
   datasource:
     url: jdbc:mysql://localhost:3306/footballapp?serverTimezone=CET
     username: devuser
@@ -17,3 +17,7 @@ spring:
 AUTH_TOKEN: 641dd694283241309d4549a804a9757e
 # list of competitions to be followed; change the format and configure Annotation Processor in the future
 COMPETITIONS_ID: 2021,2019,2015,2014,2002
+FOOTBALL_DATA_URL: http://api.football-data.org
+FOOTBALL_DATA_VERSION: /v2/competitions/
+AUTH_HEADER: X-Auth-Token
+

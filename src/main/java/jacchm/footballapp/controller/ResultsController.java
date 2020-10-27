@@ -4,7 +4,13 @@ import jacchm.footballapp.mapping.dto.LeagueTablePositionDTO;
 import jacchm.footballapp.service.ResultsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -19,7 +25,7 @@ public class ResultsController {
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/update")
     public void updateAll() {
-       resultsService.updateAll();
+        resultsService.updateAll();
     }
 
     // TODO: method below should be only used by Admins
@@ -29,14 +35,14 @@ public class ResultsController {
         resultsService.deleteAll();
     }
 
-    @GetMapping("/league-results")
-    public List<LeagueTablePositionDTO> getLeagueAllResults(@RequestParam("league_id") Integer id){
+    @GetMapping(value = "/league-results", params = "league_id")
+    public List<LeagueTablePositionDTO> getLeagueAllResults(@RequestParam("league_id") Integer id) {
         return resultsService.getLeagueAllResults(id);
     }
 
-    @GetMapping("/league-results")
+    @GetMapping(value = "/league-results", params = {"league_id", "type"})
     public List<LeagueTablePositionDTO> getLeagueResultsOfType(@RequestParam("league_id") Integer id,
-                                                               @RequestParam("type") String type){
+                                                               @RequestParam("type") String type) {
         return resultsService.getLeagueResultsOfType(id, type);
     }
 

@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ResultsService {
 
-    boolean deleteAll();
-    boolean updateAll();
+    void deleteAll();
+    void updateAll();
     List<LeagueTablePositionDTO> getLeagueAllResults(Integer competitionId);
     List<LeagueTablePositionDTO> getLeagueResultsOfType(Integer competitionId, String type);
 
