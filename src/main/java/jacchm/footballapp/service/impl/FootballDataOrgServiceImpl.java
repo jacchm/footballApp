@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -43,7 +42,7 @@ public class FootballDataOrgServiceImpl implements FootballDataOrgService {
         this.FOOTBALL_DATA_URL = football_api_url;
         this.FOOTBALL_DATA_VERSION = football_data_org_version;
         this.HEADERS = new HttpHeaders();
-             HEADERS.add(auth_header, auth_token);
+        HEADERS.add(auth_header, auth_token);
         this.objectMapper = objectMapper;
     }
 
@@ -52,13 +51,14 @@ public class FootballDataOrgServiceImpl implements FootballDataOrgService {
         String url = FOOTBALL_DATA_URL + FOOTBALL_DATA_VERSION;
         String response = getResponse(new RequestEntity(HEADERS, HttpMethod.GET, URI.create(url)));
 
-        List<CompetitionDTO> competitionDTOList = new LinkedList<>();
+        List<CompetitionDTO> competitionDTOList;
 
         try {
             competitionDTOList = objectMapper.readValue(objectMapper.readTree(response).get("competitions").toString(),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, CompetitionDTO.class));
         } catch (JsonProcessingException e) {
-            log.error("Json could not been parsed.", e);
+            log.error("Information achieved from the server cannot be mapped. Operation aborted.", e);
+            return null;
         }
 
         return competitionDTOList;
@@ -70,25 +70,26 @@ public class FootballDataOrgServiceImpl implements FootballDataOrgService {
                 Integer.toString(competitionId));
         String response = getResponse(new RequestEntity(HEADERS, HttpMethod.GET, URI.create(url)));
 
-        List<TeamDTO> teamDTOList = new LinkedList<>();
+        List<TeamDTO> teamDTOList;
 
         try {
             teamDTOList = objectMapper.readValue(objectMapper.readTree(response).get("teams").toString(),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, TeamDTO.class));
-            // TODO: think how to avoid nested try/catch block
-            try {
-                Integer jsonCompetitionId = Integer.parseInt(objectMapper.readValue(objectMapper.readTree(response)
-                        .get("competition").get("id").toString(), String.class));
-                teamDTOList.stream()
-                        .map(teamDTO -> {
-                            teamDTO.setCompetitionId(jsonCompetitionId);
-                            return teamDTO;
-                        });
-            } catch (NumberFormatException e) {
-                log.info("It was not possible to achieve competitionId from json received from the server.");
-            }
+
+            Integer jsonCompetitionId = Integer.parseInt(objectMapper.readValue(objectMapper.readTree(response)
+                    .get("competition").get("id").toString(), String.class));
+
+            teamDTOList.stream()
+                    .map(teamDTO -> {
+                        teamDTO.setCompetitionId(jsonCompetitionId);
+                        return teamDTO;
+                    });
+        } catch (NumberFormatException e) {
+            log.info("There is no information about the league the teams are related to. Operation aborted.", e);
+            return null;
         } catch (JsonProcessingException e) {
-            log.error("Json could not been parsed.", e);
+            log.error("Information achieved from the server cannot be mapped. Operation aborted.", e);
+            return null;
         }
 
         return teamDTOList;
@@ -100,22 +101,20 @@ public class FootballDataOrgServiceImpl implements FootballDataOrgService {
                 Integer.toString(competitionId));
         String response = getResponse(new RequestEntity(HEADERS, HttpMethod.GET, URI.create(url)));
 
-        List<LeagueTablePositionDTO> resultsToBeReturned = null;
+        List<LeagueTablePositionDTO> resultsToBeReturned;
 
         try {
             Integer jsonCompetitionId = Integer.parseInt(objectMapper.readValue(objectMapper.readTree(response)
                     .get("competition").get("id").toString(), String.class));
 
-            // 3 standingi
             List<JsonNode> jsonStandingsList = objectMapper.readValue(objectMapper.readTree(response).get("standings").toString(),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, JsonNode.class));
-
             resultsToBeReturned = new LinkedList<>();
-            // 3 iteracje po standingach
+
             for (JsonNode jsonNode : jsonStandingsList) {
                 List<LeagueTablePositionDTO> jsonTable = objectMapper.readValue(jsonNode.get("table").toString(),
                         objectMapper.getTypeFactory().constructCollectionType(List.class, LeagueTablePositionDTO.class));
-                String type = jsonNode.get("type").toString().substring(1, jsonNode.get("type").toString().length() - 1); // TODO: sprawdzic czemu jsonNode.get("type").toString() daje wynik w " "
+                String type = objectMapper.readValue(jsonNode.get("type").toString(), String.class);
 
                 List<LeagueTablePositionDTO> partialResults = jsonTable.stream().map(leagueTablePositionDTO -> {
                     leagueTablePositionDTO.setType(type);
@@ -125,9 +124,12 @@ public class FootballDataOrgServiceImpl implements FootballDataOrgService {
 
                 resultsToBeReturned.addAll(partialResults);
             }
-
-        } catch (NumberFormatException | JsonProcessingException e) {
-            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            log.info("There is no information about the league the teams are related to. Operation aborted.", e);
+            return null;
+        } catch (JsonProcessingException e) {
+            log.error("Information achieved from the server cannot be mapped. Operation aborted.", e);
+            return null;
         }
 
         return resultsToBeReturned;
@@ -138,10 +140,9 @@ public class FootballDataOrgServiceImpl implements FootballDataOrgService {
         ResponseEntity<String> response = restTemplate.exchange(request, String.class);
         log.info("Request to external API has been sent. " + new Date());
 
-        HttpStatus responseStatus = response.getStatusCode();
-        if (responseStatus.isError()) {
+        if (response.getStatusCode().isError()) {
             throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
-                    "Response status: " + responseStatus.value());
+                    "Response status: " + response.getStatusCode().value());
         }
 
         return response.getBody();
