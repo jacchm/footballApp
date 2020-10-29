@@ -1,12 +1,11 @@
 package jacchm.footballapp.service.impl;
 
-import jacchm.footballapp.customexceptions.ExternalFootballApiConnectionException;
 import jacchm.footballapp.mapping.dto.CompetitionDTO;
 import jacchm.footballapp.model.entity.Competition;
 import jacchm.footballapp.mapping.mapper.CompetitionMapper;
 import jacchm.footballapp.repository.CompetitionRepository;
 import jacchm.footballapp.service.CompetitionService;
-import jacchm.footballapp.service.FootballDataOrgService;
+import jacchm.footballapp.service.ExternalFootballAPIService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,7 @@ import java.util.stream.Collectors;
 public class CompetitionServiceImpl implements CompetitionService {
 
     private final CompetitionRepository competitionRepository;
-    private final FootballDataOrgService footballDataOrgService;
+    private final ExternalFootballAPIService footballDataOrgServiceImpl;
     private final CompetitionMapper competitionMapper;
 
     @Override
@@ -34,29 +33,21 @@ public class CompetitionServiceImpl implements CompetitionService {
                 .map(competitionMapper::mapToCompetitionDTO).collect(Collectors.toList());
     }
 
-    public CompetitionDTO getById(Integer id) {
-        return competitionRepository.findById(id)
+    @Override
+    public CompetitionDTO getById(Integer competitionId) {
+        return competitionRepository.findById(competitionId)
                 .map(competitionMapper::mapToCompetitionDTO)
                 .orElse(new CompetitionDTO());
     }
 
     @Override
     public void updateAll() {
-        try {
-            saveListInDataBase(footballDataOrgService.getCompetitions());
-        } catch (ExternalFootballApiConnectionException e) {
-            log.info("Connection with football data api has not been established." + e);
-        }
+        competitionRepository.
+                saveAll(footballDataOrgServiceImpl.getCompetitions()
+                        .stream()
+                        .map(competitionMapper::mapToCompetition)
+                        .collect(Collectors.toList()));
     }
 
-    private void saveListInDataBase(List<CompetitionDTO> competitionDTOList) {
-        if (competitionDTOList != null) {
-            competitionRepository.
-                    saveAll(competitionDTOList
-                            .stream()
-                            .map(competitionMapper::mapToCompetition)
-                            .collect(Collectors.toList()));
-        }
-    }
 
 }

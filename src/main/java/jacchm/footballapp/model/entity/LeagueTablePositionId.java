@@ -2,7 +2,9 @@ package jacchm.footballapp.model.entity;
 
 import lombok.Data;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
@@ -10,7 +12,7 @@ import java.io.Serializable;
 @Embeddable
 public class LeagueTablePositionId implements Serializable {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Team team;
     private Integer competitionId;
     private String standingType;

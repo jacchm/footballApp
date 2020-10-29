@@ -1,10 +1,9 @@
 package jacchm.footballapp.service.impl;
 
-import jacchm.footballapp.customexceptions.ExternalFootballApiConnectionException;
 import jacchm.footballapp.mapping.dto.TeamDTO;
 import jacchm.footballapp.mapping.mapper.TeamMapper;
 import jacchm.footballapp.repository.TeamRepository;
-import jacchm.footballapp.service.FootballDataOrgService;
+import jacchm.footballapp.service.ExternalFootballAPIService;
 import jacchm.footballapp.service.TeamsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,16 +16,16 @@ import java.util.stream.Collectors;
 @Service
 public class TeamsServiceImpl implements TeamsService {
 
-    private final FootballDataOrgService footballDataOrgService;
+    private final ExternalFootballAPIService footballDataOrgServiceImpl;
     private final TeamRepository teamRepository;
     private final TeamMapper teamMapper;
     private final List<Integer> competitionIdList;
 
-    public TeamsServiceImpl(FootballDataOrgService footballDataOrgService,
+    public TeamsServiceImpl(ExternalFootballAPIService footballDataOrgServiceImpl,
                             TeamRepository teamRepository,
                             TeamMapper teamMapper,
-                            @Value("${COMPETITIONS_ID}") List<Integer> competitionIdList) {
-        this.footballDataOrgService = footballDataOrgService;
+                            @Value("${competitionsId}") List<Integer> competitionIdList) {
+        this.footballDataOrgServiceImpl = footballDataOrgServiceImpl;
         this.teamRepository = teamRepository;
         this.teamMapper = teamMapper;
         this.competitionIdList = competitionIdList;
@@ -52,24 +51,12 @@ public class TeamsServiceImpl implements TeamsService {
 
     @Override
     public void updateAll() {
-        for (int i = 0; i < competitionIdList.size(); i++) {
-            try {
-                saveListInDataBase(footballDataOrgService.getTeams(competitionIdList.get(i)));
-            } catch (ExternalFootballApiConnectionException e) {
-                log.info("Connection with football data api has not been established." + e);
-            }
+        for (Integer competitionId : competitionIdList) {
+            teamRepository.saveAll(footballDataOrgServiceImpl.getTeams(competitionId).stream()
+                    .map(teamMapper::mapToTeam)
+                    .collect(Collectors.toList()));
         }
     }
 
-    private void saveListInDataBase(List<TeamDTO> teamDTOList) {
-        if (teamDTOList != null) {
-            teamRepository.
-                    saveAll(teamDTOList
-                            .stream()
-                            .map(teamMapper::mapToTeam)
-                            .collect(Collectors.toList()));
-            log.info("Teams update for competition ID: " + teamDTOList.get(0).getCompetitionId() + " completed.");
-        }
-    }
 
 }

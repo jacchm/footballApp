@@ -24,14 +24,14 @@ public class ResultsController {
     // TODO: scheduled or done manually by admin
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/update")
-    public void updateAll() {
+    public void update() {
         resultsService.updateAll();
     }
 
     // TODO: method below should be only used by Admins
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/delete")
-    public void deleteAllFromDataBase() {
+    public void delete() {
         resultsService.deleteAll();
     }
 

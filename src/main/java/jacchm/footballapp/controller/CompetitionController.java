@@ -17,16 +17,17 @@ public class CompetitionController {
     private final CompetitionService competitionService;
 
     // TODO: scheduled or done manually by admin
+    // controler advice
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/update")
-    public void updateAll() {
+    public void update() {
         competitionService.updateAll();
     }
 
     // TODO: method below should be only used by Admins
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/delete")
-    public void deleteAllFromDataBase() {
+    public void delete() {
         competitionService.deleteAll();
     }
 

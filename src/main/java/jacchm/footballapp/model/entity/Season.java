@@ -18,8 +18,7 @@ public class Season implements Serializable {
     private LocalDate startDate;
     private LocalDate endDate;
     private int currentMatchday;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Team winner;
-
 
 }

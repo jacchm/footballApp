@@ -25,14 +25,14 @@ public class TeamsController {
     // TODO: scheduled or done manually by admin
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/update")
-    public void updateAll() {
+    public void update() {
        teamsService.updateAll();
     }
 
     // TODO: method below should be only used by Admins
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/delete")
-    public void deleteAll() {
+    public void delete() {
         teamsService.deleteAll();
     }
 
@@ -42,7 +42,7 @@ public class TeamsController {
     }
 
     @GetMapping
-    public TeamDTO getTeam(@PathVariable("team_id") Integer id){
+    public TeamDTO getById(@PathVariable("team_id") Integer id){
         return teamsService.getTeam(id);
     }
 

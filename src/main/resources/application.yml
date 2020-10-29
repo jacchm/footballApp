@@ -11,13 +11,19 @@ spring:
     username: devuser
     password: 2252526j
 
+  # server settings
+server:
+  servlet:
+    context-path: /api
 
-
-# external API token
-AUTH_TOKEN: 641dd694283241309d4549a804a9757e
+# external API config
+authHeader: X-Auth-Token
+authToken: 641dd694283241309d4549a804a9757e
 # list of competitions to be followed; change the format and configure Annotation Processor in the future
-COMPETITIONS_ID: 2021,2019,2015,2014,2002
-FOOTBALL_DATA_URL: http://api.football-data.org
-FOOTBALL_DATA_VERSION: /v2/competitions/
-AUTH_HEADER: X-Auth-Token
+competitionsId: 2021,2019,2015,2014,2002
+# list of external football api endpoints which have to be reached to achieve particular data
+footballDataCompetitions: http://api.football-data.org/v2/competitions/
+footballDataTeams: http://api.football-data.org/v2/competitions/{0}/teams
+footballDataResults: http://api.football-data.org/v2/competitions/{0}/standings
+
 
