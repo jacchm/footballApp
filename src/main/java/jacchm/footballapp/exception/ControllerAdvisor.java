@@ -20,7 +20,7 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
         body.put("timestamp", LocalDateTime.now());
         body.put("errCode", e.getErrCode());
 
-        return new ResponseEntity<>(body, HttpStatus.NOT_ACCEPTABLE);
+        return new ResponseEntity<>(body, HttpStatus.PROCESSING);
     }
 
 }

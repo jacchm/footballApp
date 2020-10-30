@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +41,7 @@ public class CompetitionServiceImpl implements CompetitionService {
                 .orElse(new CompetitionDTO());
     }
 
+    @Transactional
     @Override
     public void updateAll() {
         competitionRepository.

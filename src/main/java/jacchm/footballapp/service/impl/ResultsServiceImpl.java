@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,6 +55,7 @@ public class ResultsServiceImpl implements ResultsService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     @Override
     public void updateAll() {
         for (Integer competitionId : competitionIdList) {

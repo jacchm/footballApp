@@ -57,7 +57,7 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
 
         if (response.getStatusCode().isError()) {
             throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
-                    "Response status: " + response.getStatusCode().value());
+                    "Response status: " + response.getStatusCode().value(), "1000");
         }
 
         String respCompetitions = response.getBody();
@@ -67,7 +67,7 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
             competitionDTOList = objectMapper.readValue(objectMapper.readTree(respCompetitions).get("competitions").toString(),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, CompetitionDTO.class));
         } catch (JsonProcessingException e) {
-            throw new DataParsingException("Json processing error during competitions mapping.", "0001");
+            throw new DataParsingException("Json processing error during competitions mapping.", "0011");
         }
 
         return competitionDTOList;
@@ -81,7 +81,7 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
 
             if (response.getStatusCode().isError()) {
                 throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
-                        "Response status: " + response.getStatusCode().value());
+                        "Response status: " + response.getStatusCode().value(), "1000");
             }
 
             String respTeams = response.getBody();
@@ -95,10 +95,10 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
 
                 teamDTOList.forEach(teamDTO -> teamDTO.setCompetitionId(jsonCompetitionId));
             } catch (JsonProcessingException e) {
-                throw new DataParsingException("Json processing error during teams mapping.", "0001");
+                throw new DataParsingException("Json processing error during teams mapping.", "0021");
             } catch (NumberFormatException e) {
                 throw new DataParsingException("Teams mapping failed. " +
-                        "No information about the league id.", "0002");
+                        "No information about the league id.", "0022");
             }
 
             return teamDTOList;
@@ -112,7 +112,7 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
 
         if (response.getStatusCode().isError()) {
             throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
-                    "Response status: " + response.getStatusCode().value());
+                    "Response status: " + response.getStatusCode().value(), "1000");
         }
 
         String results = response.getBody();
@@ -139,10 +139,10 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
                 resultsDTOList.addAll(partialResults);
             }
         } catch (JsonProcessingException e) {
-            throw new DataParsingException("Json processing error during results mapping",  "0001");
+            throw new DataParsingException("Json processing error during results mapping",  "0031");
         } catch (NumberFormatException e) {
             throw new DataParsingException("Results mapping failed. " +
-                    "No information about the league id.", "0002");
+                    "No information about the league id.", "0032");
         }
 
         return resultsDTOList;
