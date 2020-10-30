@@ -3,8 +3,8 @@ package jacchm.footballapp.service.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jacchm.footballapp.customexceptions.DataParsingException;
-import jacchm.footballapp.customexceptions.ExternalFootballApiConnectionException;
+import jacchm.footballapp.exception.DataParsingException;
+import jacchm.footballapp.exception.ExternalFootballApiConnectionException;
 import jacchm.footballapp.mapping.dto.CompetitionDTO;
 import jacchm.footballapp.mapping.dto.LeagueTablePositionDTO;
 import jacchm.footballapp.mapping.dto.TeamDTO;
@@ -55,7 +55,6 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
         RequestEntity<String> request = new RequestEntity<>(headers, HttpMethod.GET, URI.create(footballDataCompetitions));
         ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 
-
         if (response.getStatusCode().isError()) {
             throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
                     "Response status: " + response.getStatusCode().value());
@@ -68,42 +67,42 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
             competitionDTOList = objectMapper.readValue(objectMapper.readTree(respCompetitions).get("competitions").toString(),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, CompetitionDTO.class));
         } catch (JsonProcessingException e) {
-            throw new DataParsingException("Json processing error during competitions mapping.");
+            throw new DataParsingException("Json processing error during competitions mapping.", "0001");
         }
 
         return competitionDTOList;
     }
 
-    @Override
-    public List<TeamDTO> getTeams(int competitionId) {
-        String url = MessageFormat.format(footballDataTeams, Integer.toString(competitionId));
-        RequestEntity<String> request = new RequestEntity<>(headers, HttpMethod.GET, URI.create(url));
-        ResponseEntity<String> response = restTemplate.exchange(request, String.class);
+        @Override
+        public List<TeamDTO> getTeams(int competitionId) {
+            String url = MessageFormat.format(footballDataTeams, Integer.toString(competitionId));
+            RequestEntity<String> request = new RequestEntity<>(headers, HttpMethod.GET, URI.create(url));
+            ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 
-        if (response.getStatusCode().isError()) {
-            throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
-                    "Response status: " + response.getStatusCode().value());
+            if (response.getStatusCode().isError()) {
+                throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
+                        "Response status: " + response.getStatusCode().value());
+            }
+
+            String respTeams = response.getBody();
+            List<TeamDTO> teamDTOList;
+
+            try {
+                teamDTOList = objectMapper.readValue(objectMapper.readTree(respTeams).get("teams").toString(),
+                        objectMapper.getTypeFactory().constructCollectionType(List.class, TeamDTO.class));
+                Integer jsonCompetitionId = Integer.parseInt(objectMapper.readValue(objectMapper.readTree(respTeams)
+                        .get("competition").get("id").toString(), String.class));
+
+                teamDTOList.forEach(teamDTO -> teamDTO.setCompetitionId(jsonCompetitionId));
+            } catch (JsonProcessingException e) {
+                throw new DataParsingException("Json processing error during teams mapping.", "0001");
+            } catch (NumberFormatException e) {
+                throw new DataParsingException("Teams mapping failed. " +
+                        "No information about the league id.", "0002");
+            }
+
+            return teamDTOList;
         }
-
-        String respTeams = response.getBody();
-        List<TeamDTO> teamDTOList;
-
-        try {
-            teamDTOList = objectMapper.readValue(objectMapper.readTree(respTeams).get("teams").toString(),
-                    objectMapper.getTypeFactory().constructCollectionType(List.class, TeamDTO.class));
-            Integer jsonCompetitionId = Integer.parseInt(objectMapper.readValue(objectMapper.readTree(respTeams)
-                    .get("competition").get("id").toString(), String.class));
-
-            teamDTOList.forEach(teamDTO -> teamDTO.setCompetitionId(jsonCompetitionId));
-        } catch (JsonProcessingException e) {
-            throw new DataParsingException("Json processing error during teams mapping.");
-        } catch (NumberFormatException e) {
-            throw new DataParsingException("Teams mapping failed. " +
-                    "No information about the league id.");
-        }
-
-        return teamDTOList;
-    }
 
     @Override
     public List<LeagueTablePositionDTO> getResults(int competitionId) {
@@ -116,37 +115,37 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
                     "Response status: " + response.getStatusCode().value());
         }
 
-        String respResults = response.getBody();
-        List<LeagueTablePositionDTO> results;
+        String results = response.getBody();
+        List<LeagueTablePositionDTO> resultsDTOList;
 
         try {
-            Integer jsonCompetitionId = Integer.parseInt(objectMapper.readValue(objectMapper.readTree(respResults)
+            Integer jsonCompetitionId = Integer.parseInt(objectMapper.readValue(objectMapper.readTree(results)
                     .get("competition").get("id").toString(), String.class));
 
-            List<JsonNode> jsonStandingsList = objectMapper.readValue(objectMapper.readTree(respResults).get("standings").toString(),
+            List<JsonNode> jsonStandingsList = objectMapper.readValue(objectMapper.readTree(results).get("standings").toString(),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, JsonNode.class));
-            results = new LinkedList<>();
+            resultsDTOList = new LinkedList<>();
 
             for (JsonNode jsonNode : jsonStandingsList) {
-                List<LeagueTablePositionDTO> resultsTable = objectMapper.readValue(jsonNode.get("table").toString(),
+                List<LeagueTablePositionDTO> partialResults = objectMapper.readValue(jsonNode.get("table").toString(),
                         objectMapper.getTypeFactory().constructCollectionType(List.class, LeagueTablePositionDTO.class));
                 String type = objectMapper.readValue(jsonNode.get("type").toString(), String.class);
 
-                resultsTable.forEach(leagueTablePositionDTO -> {
+                partialResults.forEach(leagueTablePositionDTO -> {
                     leagueTablePositionDTO.setType(type);
                     leagueTablePositionDTO.setCompetitionId(jsonCompetitionId);
                 });
 
-                results.addAll(resultsTable);
+                resultsDTOList.addAll(partialResults);
             }
         } catch (JsonProcessingException e) {
-            throw new DataParsingException("Json processing error during results mapping");
+            throw new DataParsingException("Json processing error during results mapping",  "0001");
         } catch (NumberFormatException e) {
             throw new DataParsingException("Results mapping failed. " +
-                    "No information about the league id.");
+                    "No information about the league id.", "0002");
         }
 
-        return results;
+        return resultsDTOList;
     }
 
 }

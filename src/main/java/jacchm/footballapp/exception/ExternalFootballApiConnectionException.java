@@ -1,4 +1,4 @@
-package jacchm.footballapp.customexceptions;
+package jacchm.footballapp.exception;
 
 public class ExternalFootballApiConnectionException extends RuntimeException {
 

@@ -23,7 +23,7 @@ public class Competition implements Serializable {
     private String code;
     private String ensignUrl;
     private String plan;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Season currentSeason;
     private Integer numberOfAvailableSeasons;
     private LocalDateTime lastUpdated;
