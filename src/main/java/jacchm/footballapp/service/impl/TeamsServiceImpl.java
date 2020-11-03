@@ -7,6 +7,7 @@ import jacchm.footballapp.service.ExternalFootballAPIService;
 import jacchm.footballapp.service.TeamsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -51,6 +52,7 @@ public class TeamsServiceImpl implements TeamsService {
     }
 
     @Transactional
+    @Scheduled(cron = "0 0 0 * 8,9 ?")
     @Override
     public void updateAll() {
         for (Integer competitionId : competitionIdList) {

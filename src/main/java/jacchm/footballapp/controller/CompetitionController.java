@@ -35,7 +35,7 @@ public class CompetitionController {
         return competitionService.getAll();
     }
 
-    @GetMapping
+    @GetMapping(params = "competition_id")
     public CompetitionDTO getById(@RequestParam("competition_id") Integer id) {
         return competitionService.getById(id);
     }

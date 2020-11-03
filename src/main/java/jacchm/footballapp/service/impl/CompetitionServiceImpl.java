@@ -8,6 +8,7 @@ import jacchm.footballapp.service.CompetitionService;
 import jacchm.footballapp.service.ExternalFootballAPIService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -42,6 +43,7 @@ public class CompetitionServiceImpl implements CompetitionService {
     }
 
     @Transactional
+    @Scheduled(cron = "0 0 0 1 8 ?")
     @Override
     public void updateAll() {
         competitionRepository.
