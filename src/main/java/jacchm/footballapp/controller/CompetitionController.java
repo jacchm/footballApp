@@ -17,16 +17,15 @@ public class CompetitionController {
     private final CompetitionService competitionService;
 
     // TODO: scheduled or done manually by admin
-    // controler advice
     @ResponseStatus(HttpStatus.OK)
-    @PutMapping("/update")
+    @PutMapping
     public void update() {
         competitionService.updateAll();
     }
 
     // TODO: method below should be only used by Admins
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping("/delete")
+    @DeleteMapping
     public void delete() {
         competitionService.deleteAll();
     }
@@ -36,8 +35,8 @@ public class CompetitionController {
         return competitionService.getAll();
     }
 
-    @GetMapping("/{id}")
-    public CompetitionDTO getById(@PathVariable("id") Integer id) {
+    @GetMapping
+    public CompetitionDTO getById(@RequestParam("competition_id") Integer id) {
         return competitionService.getById(id);
     }
 

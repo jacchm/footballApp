@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @ControllerAdvice
-public class ControllerAdvisor extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(DataParsingException.class)
     public ResponseEntity<Object> handleDataParsingException(DataParsingException e) {
