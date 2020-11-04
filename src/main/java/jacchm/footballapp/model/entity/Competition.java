@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Competition implements Serializable {
 
+    private static final long serialVersionUID = 2861976501342274325L;
     @Id
     private Integer id;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

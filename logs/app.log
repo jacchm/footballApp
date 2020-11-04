@@ -14187,8 +14187,8 @@ Caused by: org.springframework.beans.factory.BeanCurrentlyInCreationException: E
 2020-10-29 13:25:47,604 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-10-29 13:25:47,604 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
 2020-10-29 13:25:47,611 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 7 ms
-2020-10-29 13:26:56,782 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Json processing error during teams mapping.] with root cause
-jacchm.footballapp.exception.DataParsingException: Json processing error during teams mapping.
+2020-10-29 13:26:56,782 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Json processing error during teams mapping.] with root cause
+jacchm.footballapp.exception.FootballAppException: Json processing error during teams mapping.
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getTeams(FootballDataOrgServiceImpl.java:98)
 	at jacchm.footballapp.service.impl.TeamsServiceImpl.updateAll(TeamsServiceImpl.java:57)
 	at jacchm.footballapp.controller.TeamsController.update(TeamsController.java:29)
@@ -14242,8 +14242,8 @@ jacchm.footballapp.exception.DataParsingException: Json processing error during 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-10-29 13:27:21,394 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-10] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Json processing error during competitions mapping.] with root cause
-jacchm.footballapp.exception.DataParsingException: Json processing error during competitions mapping.
+2020-10-29 13:27:21,394 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-10] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Json processing error during competitions mapping.] with root cause
+jacchm.footballapp.exception.FootballAppException: Json processing error during competitions mapping.
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getCompetitions(FootballDataOrgServiceImpl.java:70)
 	at jacchm.footballapp.service.impl.CompetitionServiceImpl.updateAll(CompetitionServiceImpl.java:45)
 	at jacchm.footballapp.controller.CompetitionController.update(CompetitionController.java:24)
@@ -14327,8 +14327,8 @@ jacchm.footballapp.exception.DataParsingException: Json processing error during 
 2020-10-29 13:28:10,579 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
 2020-10-29 13:28:10,587 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed initialization in 7 ms
 2020-10-29 13:30:45,492 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m2s888ms27Âµs200ns).
-2020-10-29 13:30:45,544 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Json processing error during competitions mapping.] with root cause
-jacchm.footballapp.exception.DataParsingException: Json processing error during competitions mapping.
+2020-10-29 13:30:45,544 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Json processing error during competitions mapping.] with root cause
+jacchm.footballapp.exception.FootballAppException: Json processing error during competitions mapping.
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getCompetitions(FootballDataOrgServiceImpl.java:70)
 	at jacchm.footballapp.service.impl.CompetitionServiceImpl.updateAll(CompetitionServiceImpl.java:45)
 	at jacchm.footballapp.controller.CompetitionController.update(CompetitionController.java:24)
@@ -14492,7 +14492,7 @@ jacchm.footballapp.exception.DataParsingException: Json processing error during 
 2020-10-29 23:04:05,739 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
 2020-10-29 23:04:06,037 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-10-29 23:04:06,443 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-10-29 23:04:08,819 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-10-29 23:04:08,819 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositoriesï¿½
 2020-10-29 23:04:09,721 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
 2020-10-29 23:04:10,449 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
 2020-10-29 23:04:10,546 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
@@ -14534,7 +14534,7 @@ jacchm.footballapp.exception.DataParsingException: Json processing error during 
 2020-10-29 23:04:43,587 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
 2020-10-29 23:04:43,593 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed initialization in 6 ms
 2020-10-29 23:04:43,615 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8080-exec-2] Failure in @ExceptionHandler jacchm.footballapp.exception.ControllerAdvisor#handleDataParsingException(DataParsingException, HttpStatus)
-java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.DataParsingException,org.springframework.http.HttpStatus): No suitable resolver
+java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.FootballAppException,org.springframework.http.HttpStatus): No suitable resolver
 	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:164)
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
@@ -14584,8 +14584,8 @@ java.lang.IllegalStateException: Could not resolve parameter [1] in public org.s
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-10-29 23:04:43,619 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Error code: Z0001] with root cause
-jacchm.footballapp.exception.DataParsingException: Error code: Z0001
+2020-10-29 23:04:43,619 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Error code: Z0001] with root cause
+jacchm.footballapp.exception.FootballAppException: Error code: Z0001
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getTeams(FootballDataOrgServiceImpl.java:111)
 	at jacchm.footballapp.service.impl.TeamsServiceImpl.updateAll(TeamsServiceImpl.java:55)
 	at jacchm.footballapp.controller.TeamsController.update(TeamsController.java:29)
@@ -14669,7 +14669,7 @@ jacchm.footballapp.exception.DataParsingException: Error code: Z0001
 2020-10-29 23:07:55,562 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
 2020-10-29 23:07:55,568 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed initialization in 6 ms
 2020-10-29 23:07:55,593 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8080-exec-2] Failure in @ExceptionHandler jacchm.footballapp.exception.ControllerAdvisor#handleDataParsingException(DataParsingException, HttpStatus)
-java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.DataParsingException,org.springframework.http.HttpStatus): No suitable resolver
+java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.FootballAppException,org.springframework.http.HttpStatus): No suitable resolver
 	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:164)
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
@@ -14719,8 +14719,8 @@ java.lang.IllegalStateException: Could not resolve parameter [1] in public org.s
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-10-29 23:07:55,596 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Error code: Z0001] with root cause
-jacchm.footballapp.exception.DataParsingException: Error code: Z0001
+2020-10-29 23:07:55,596 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Error code: Z0001] with root cause
+jacchm.footballapp.exception.FootballAppException: Error code: Z0001
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getTeams(FootballDataOrgServiceImpl.java:111)
 	at jacchm.footballapp.service.impl.TeamsServiceImpl.updateAll(TeamsServiceImpl.java:55)
 	at jacchm.footballapp.controller.TeamsController.update(TeamsController.java:29)
@@ -14804,7 +14804,7 @@ jacchm.footballapp.exception.DataParsingException: Error code: Z0001
 2020-10-29 23:08:37,929 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
 2020-10-29 23:08:37,938 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed initialization in 9 ms
 2020-10-29 23:08:37,964 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8080-exec-2] Failure in @ExceptionHandler jacchm.footballapp.exception.ControllerAdvisor#handleDataParsingException(DataParsingException, HttpStatus)
-java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.DataParsingException,org.springframework.http.HttpStatus): No suitable resolver
+java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.FootballAppException,org.springframework.http.HttpStatus): No suitable resolver
 	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:164)
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
@@ -14854,8 +14854,8 @@ java.lang.IllegalStateException: Could not resolve parameter [1] in public org.s
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-10-29 23:08:37,967 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Error code: Z0001] with root cause
-jacchm.footballapp.exception.DataParsingException: Error code: Z0001
+2020-10-29 23:08:37,967 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Error code: Z0001] with root cause
+jacchm.footballapp.exception.FootballAppException: Error code: Z0001
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getTeams(FootballDataOrgServiceImpl.java:111)
 	at jacchm.footballapp.service.impl.TeamsServiceImpl.updateAll(TeamsServiceImpl.java:55)
 	at jacchm.footballapp.controller.TeamsController.update(TeamsController.java:29)
@@ -14939,7 +14939,7 @@ jacchm.footballapp.exception.DataParsingException: Error code: Z0001
 2020-10-29 23:09:54,169 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
 2020-10-29 23:09:54,177 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed initialization in 8 ms
 2020-10-29 23:09:54,199 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8080-exec-2] Failure in @ExceptionHandler jacchm.footballapp.exception.ControllerAdvisor#handleDataParsingException(DataParsingException, HttpStatus)
-java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.DataParsingException,org.springframework.http.HttpStatus): No suitable resolver
+java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.FootballAppException,org.springframework.http.HttpStatus): No suitable resolver
 	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:164)
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
@@ -14989,8 +14989,8 @@ java.lang.IllegalStateException: Could not resolve parameter [1] in public org.s
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-10-29 23:09:54,202 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Error code: Z0001] with root cause
-jacchm.footballapp.exception.DataParsingException: Error code: Z0001
+2020-10-29 23:09:54,202 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Error code: Z0001] with root cause
+jacchm.footballapp.exception.FootballAppException: Error code: Z0001
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getTeams(FootballDataOrgServiceImpl.java:111)
 	at jacchm.footballapp.service.impl.TeamsServiceImpl.updateAll(TeamsServiceImpl.java:55)
 	at jacchm.footballapp.controller.TeamsController.update(TeamsController.java:29)
@@ -15074,7 +15074,7 @@ jacchm.footballapp.exception.DataParsingException: Error code: Z0001
 2020-10-29 23:12:01,556 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
 2020-10-29 23:12:01,564 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 8 ms
 2020-10-29 23:12:01,585 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8080-exec-1] Failure in @ExceptionHandler jacchm.footballapp.exception.ControllerAdvisor#handleDataParsingException(DataParsingException, HttpStatus)
-java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.DataParsingException,org.springframework.http.HttpStatus): No suitable resolver
+java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.FootballAppException,org.springframework.http.HttpStatus): No suitable resolver
 	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:164)
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
@@ -15124,8 +15124,8 @@ java.lang.IllegalStateException: Could not resolve parameter [1] in public org.s
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-10-29 23:12:01,588 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Error code: Z0001] with root cause
-jacchm.footballapp.exception.DataParsingException: Error code: Z0001
+2020-10-29 23:12:01,588 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Error code: Z0001] with root cause
+jacchm.footballapp.exception.FootballAppException: Error code: Z0001
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getTeams(FootballDataOrgServiceImpl.java:111)
 	at jacchm.footballapp.service.impl.TeamsServiceImpl.updateAll(TeamsServiceImpl.java:55)
 	at jacchm.footballapp.controller.TeamsController.update(TeamsController.java:29)
@@ -15209,7 +15209,7 @@ jacchm.footballapp.exception.DataParsingException: Error code: Z0001
 2020-10-29 23:12:52,493 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
 2020-10-29 23:12:52,501 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed initialization in 8 ms
 2020-10-29 23:12:52,523 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8080-exec-2] Failure in @ExceptionHandler jacchm.footballapp.exception.ControllerAdvisor#handleDataParsingException(DataParsingException, HttpStatus)
-java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.DataParsingException,org.springframework.http.HttpStatus): No suitable resolver
+java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<java.lang.Object> jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.FootballAppException,org.springframework.http.HttpStatus): No suitable resolver
 	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:164)
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
@@ -15259,8 +15259,8 @@ java.lang.IllegalStateException: Could not resolve parameter [1] in public org.s
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-10-29 23:12:52,526 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Error code: Z0001] with root cause
-jacchm.footballapp.exception.DataParsingException: Error code: Z0001
+2020-10-29 23:12:52,526 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Error code: Z0001] with root cause
+jacchm.footballapp.exception.FootballAppException: Error code: Z0001
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getTeams(FootballDataOrgServiceImpl.java:111)
 	at jacchm.footballapp.service.impl.TeamsServiceImpl.updateAll(TeamsServiceImpl.java:55)
 	at jacchm.footballapp.controller.TeamsController.update(TeamsController.java:29)
@@ -15344,7 +15344,7 @@ jacchm.footballapp.exception.DataParsingException: Error code: Z0001
 2020-10-29 23:15:58,669 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
 2020-10-29 23:15:58,677 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 8 ms
 2020-10-29 23:15:58,698 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8080-exec-1] Failure in @ExceptionHandler jacchm.footballapp.exception.ControllerAdvisor#handleDataParsingException(DataParsingException, HttpStatus)
-java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.DataParsingException,org.springframework.http.HttpStatus): No suitable resolver
+java.lang.IllegalStateException: Could not resolve parameter [1] in public org.springframework.http.ResponseEntity jacchm.footballapp.exception.ControllerAdvisor.handleDataParsingException(jacchm.footballapp.exception.FootballAppException,org.springframework.http.HttpStatus): No suitable resolver
 	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:164)
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
@@ -15394,8 +15394,8 @@ java.lang.IllegalStateException: Could not resolve parameter [1] in public org.s
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-10-29 23:15:58,702 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.DataParsingException: Error code: Z0001] with root cause
-jacchm.footballapp.exception.DataParsingException: Error code: Z0001
+2020-10-29 23:15:58,702 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api].[dispatcherServlet] [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is jacchm.footballapp.exception.FootballAppException: Error code: Z0001] with root cause
+jacchm.footballapp.exception.FootballAppException: Error code: Z0001
 	at jacchm.footballapp.service.impl.FootballDataOrgServiceImpl.getTeams(FootballDataOrgServiceImpl.java:111)
 	at jacchm.footballapp.service.impl.TeamsServiceImpl.updateAll(TeamsServiceImpl.java:55)
 	at jacchm.footballapp.controller.TeamsController.update(TeamsController.java:29)
@@ -15524,7 +15524,7 @@ jacchm.footballapp.exception.DataParsingException: Error code: Z0001
 2020-10-29 23:28:29,669 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-10-29 23:28:29,920 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2020-10-29 23:28:30,692 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-10-29 23:28:30,879 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-10-29 23:28:30,879 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositoriesï¿½
 2020-10-29 23:28:31,245 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
 2020-10-29 23:28:31,288 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
 2020-10-29 23:28:32,648 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
@@ -15581,7 +15581,7 @@ jacchm.footballapp.exception.DataParsingException: Error code: Z0001
 2020-10-30 08:10:46,463 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-10-30 08:10:46,696 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2020-10-30 08:10:47,259 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-10-30 08:10:47,470 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-10-30 08:10:47,470 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositoriesï¿½
 2020-10-30 08:10:47,901 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
 2020-10-30 08:10:47,947 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
 2020-10-30 08:10:49,284 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
@@ -15724,7 +15724,7 @@ jacchm.footballapp.exception.DataParsingException: Error code: Z0001
 2020-11-03 14:01:47,392 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
 2020-11-03 14:01:47,490 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2020-11-03 14:01:47,549 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-11-03 14:01:47,626 WARN org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+2020-11-03 14:01:47,626 WARN org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -15739,11 +15739,11 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 2020-11-03 14:01:48,993 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
 2020-11-03 14:01:49,009 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
 2020-11-03 14:01:49,010 INFO org.apache.catalina.core.StandardService [main] Stopping service [Tomcat]
-2020-11-03 14:01:49,019 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+2020-11-03 14:01:49,019 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main]
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2020-11-03 14:01:49,027 ERROR org.springframework.boot.SpringApplication [main] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -15765,7 +15765,7 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
 	at jacchm.footballapp.FootballappApplication.main(FootballappApplication.java:11)
-Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -15801,7 +15801,7 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 2020-11-03 14:02:45,381 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-11-03 14:02:45,398 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2020-11-03 14:02:45,481 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-11-03 14:02:45,519 WARN org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+2020-11-03 14:02:45,519 WARN org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -15814,11 +15814,11 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 2020-11-03 14:02:46,537 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
 2020-11-03 14:02:46,556 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
 2020-11-03 14:02:46,558 INFO org.apache.catalina.core.StandardService [main] Stopping service [Tomcat]
-2020-11-03 14:02:46,567 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+2020-11-03 14:02:46,567 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main]
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2020-11-03 14:02:46,573 ERROR org.springframework.boot.SpringApplication [main] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -15840,7 +15840,7 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
 	at jacchm.footballapp.FootballappApplication.main(FootballappApplication.java:10)
-Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -15875,7 +15875,7 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 2020-11-03 14:03:51,633 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
 2020-11-03 14:03:51,839 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-11-03 14:03:52,109 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-03 14:03:52,422 WARN org.springframework.web.context.support.GenericWebApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+2020-11-03 14:03:52,422 WARN org.springframework.web.context.support.GenericWebApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -15888,11 +15888,11 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 2020-11-03 14:03:54,188 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Shutting down ExecutorService 'applicationTaskExecutor'
 2020-11-03 14:03:54,189 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
 2020-11-03 14:03:54,209 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
-2020-11-03 14:03:54,217 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+2020-11-03 14:03:54,217 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main]
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2020-11-03 14:03:54,222 ERROR org.springframework.boot.SpringApplication [main] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -15978,7 +15978,7 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -16065,7 +16065,7 @@ java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -16087,7 +16087,7 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
 	... 65 common frames omitted
-Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method 
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'competitionController' method
 jacchm.footballapp.controller.CompetitionController#getById(Integer)
 to {GET /competitions}: There is already 'competitionController' bean method
 jacchm.footballapp.controller.CompetitionController#getAll() mapped.
@@ -16123,7 +16123,7 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 2020-11-03 14:05:47,952 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
 2020-11-03 14:05:48,235 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2020-11-03 14:05:49,401 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-11-03 14:05:49,592 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-11-03 14:05:49,592 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositoriesï¿½
 2020-11-03 14:05:50,471 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
 2020-11-03 14:05:50,510 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
 2020-11-03 14:05:51,683 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
@@ -16189,3 +16189,33 @@ jacchm.footballapp.controller.CompetitionController#getAll() mapped.
 2020-11-03 14:36:29,662 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2020-11-03 14:36:29,957 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
 2020-11-03 14:36:29,970 INFO jacchm.footballapp.FootballappApplication [main] Started FootballappApplication in 3.429 seconds (JVM running for 4.649)
+2020-11-04 10:29:51,783 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [jacchm.footballapp.FootballappApplicationTests], using SpringBootContextLoader
+2020-11-04 10:29:51,799 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [jacchm.footballapp.FootballappApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-11-04 10:29:51,801 INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [jacchm.footballapp.FootballappApplicationTests]: FootballappApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-11-04 10:29:51,937 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration jacchm.footballapp.FootballappApplication for test class jacchm.footballapp.FootballappApplicationTests
+2020-11-04 10:29:52,053 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-11-04 10:29:52,078 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@427b5f92, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@24bdb479, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7e3f95fe, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@34625ccd, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2c7d121c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@65aa6596, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@67389cb8, org.springframework.test.context.event.EventPublishingTestExecutionListener@419a20a6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@533377b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3383649e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@10fde30a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@f27ea3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1ce61929, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@346939bf]
+2020-11-04 10:29:52,442 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-11-04 10:29:52,464 INFO jacchm.footballapp.FootballappApplicationTests [main] Starting FootballappApplicationTests on DESKTOP-4VOUBH7 with PID 37824 (started by biuro in D:\JavaProjects\footballapp)
+2020-11-04 10:29:52,466 INFO jacchm.footballapp.FootballappApplicationTests [main] No active profile set, falling back to default profiles: default
+2020-11-04 10:29:53,396 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-04 10:29:53,500 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 91ms. Found 5 JPA repository interfaces.
+2020-11-04 10:29:54,188 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-04 10:29:54,220 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler [main] Initializing ExecutorService 'taskScheduler'
+2020-11-04 10:29:54,289 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-04 10:29:54,362 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-11-04 10:29:54,568 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-04 10:29:54,858 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-04 10:29:55,206 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-11-04 10:29:55,561 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-11-04 10:29:55,746 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-11-04 10:29:55,787 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-11-04 10:29:56,974 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-04 10:29:56,982 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-04 10:29:57,479 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-11-04 10:29:57,493 INFO jacchm.footballapp.FootballappApplicationTests [main] Started FootballappApplicationTests in 5.374 seconds (JVM running for 6.703)
+2020-11-04 10:29:57,680 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-04 10:29:57,684 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler [SpringContextShutdownHook] Shutting down ExecutorService 'taskScheduler'
+2020-11-04 10:29:57,684 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-04 10:29:57,685 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-11-04 10:29:57,712 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.

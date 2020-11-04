@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @Entity
 public class Team implements Serializable {
 
+    private static final long serialVersionUID = 5294003351750241880L;
     @Id
     private Integer id;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)

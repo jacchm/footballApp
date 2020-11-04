@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Entity
 public class Area implements Serializable {
 
+    private static final long serialVersionUID = -3981540909201532957L;
     @Id
     private Integer id;
     private String name;

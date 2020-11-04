@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Embeddable
 public class LeagueTablePositionId implements Serializable {
 
+    private static final long serialVersionUID = -6887871403331684777L;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Team team;
     private Integer competitionId;

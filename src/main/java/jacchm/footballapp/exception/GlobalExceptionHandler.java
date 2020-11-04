@@ -13,8 +13,8 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(DataParsingException.class)
-    public ResponseEntity<Object> handleDataParsingException(DataParsingException e) {
+    @ExceptionHandler(FootballAppException.class)
+    public ResponseEntity<Object> handleDataParsingException(FootballAppException e) {
 
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());

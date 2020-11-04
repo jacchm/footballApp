@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Entity
 public class LeagueTablePosition implements Serializable {
 
+    private static final long serialVersionUID = -6092489204848966480L;
     @EmbeddedId
     private LeagueTablePositionId leagueTablePositionId;
     private Integer position;

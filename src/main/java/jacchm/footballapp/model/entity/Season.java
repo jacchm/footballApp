@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @Entity
 public class Season implements Serializable {
 
+    private static final long serialVersionUID = -2885231369162303031L;
     @Id
     private Integer id;
     private LocalDate startDate;

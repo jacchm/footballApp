@@ -3,8 +3,8 @@ package jacchm.footballapp.service.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jacchm.footballapp.exception.DataParsingException;
-import jacchm.footballapp.exception.ExternalFootballApiConnectionException;
+import jacchm.footballapp.exception.ErrCode;
+import jacchm.footballapp.exception.FootballAppException;
 import jacchm.footballapp.mapping.dto.CompetitionDTO;
 import jacchm.footballapp.mapping.dto.LeagueTablePositionDTO;
 import jacchm.footballapp.mapping.dto.TeamDTO;
@@ -56,8 +56,7 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
         ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 
         if (response.getStatusCode().isError()) {
-            throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
-                    "Response status: " + response.getStatusCode().value(), "1000");
+            throw new FootballAppException(ErrCode.ERR0001);
         }
 
         String respCompetitions = response.getBody();
@@ -67,7 +66,7 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
             competitionDTOList = objectMapper.readValue(objectMapper.readTree(respCompetitions).get("competitions").toString(),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, CompetitionDTO.class));
         } catch (JsonProcessingException e) {
-            throw new DataParsingException("Json processing error during competitions mapping.", "0011");
+            throw new FootballAppException(ErrCode.ERR0002);
         }
 
         return competitionDTOList;
@@ -80,8 +79,7 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
             ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 
             if (response.getStatusCode().isError()) {
-                throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
-                        "Response status: " + response.getStatusCode().value(), "1000");
+                throw new FootballAppException(ErrCode.ERR0001);
             }
 
             String respTeams = response.getBody();
@@ -95,10 +93,9 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
 
                 teamDTOList.forEach(teamDTO -> teamDTO.setCompetitionId(jsonCompetitionId));
             } catch (JsonProcessingException e) {
-                throw new DataParsingException("Json processing error during teams mapping.", "0021");
+                throw new FootballAppException(ErrCode.ERR0002);
             } catch (NumberFormatException e) {
-                throw new DataParsingException("Teams mapping failed. " +
-                        "No information about the league id.", "0022");
+                throw new FootballAppException(ErrCode.ERR0003);
             }
 
             return teamDTOList;
@@ -111,8 +108,7 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
         ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 
         if (response.getStatusCode().isError()) {
-            throw new ExternalFootballApiConnectionException("It was not possible to get the response from external football API." +
-                    "Response status: " + response.getStatusCode().value(), "1000");
+            throw new FootballAppException(ErrCode.ERR0001);
         }
 
         String results = response.getBody();
@@ -139,10 +135,9 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
                 resultsDTOList.addAll(partialResults);
             }
         } catch (JsonProcessingException e) {
-            throw new DataParsingException("Json processing error during results mapping",  "0031");
+            throw new FootballAppException(ErrCode.ERR0002);
         } catch (NumberFormatException e) {
-            throw new DataParsingException("Results mapping failed. " +
-                    "No information about the league id.", "0032");
+            throw new FootballAppException(ErrCode.ERR0003);
         }
 
         return resultsDTOList;
