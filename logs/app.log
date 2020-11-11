@@ -18689,3 +18689,33 @@ java.lang.IllegalArgumentException: Parameter value [2021] did not match expecte
 2020-11-11 14:40:50,175 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-11-11 14:40:50,175 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
 2020-11-11 14:40:50,183 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 8 ms
+2020-11-11 16:27:11,400 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-11-11 16:27:11,410 INFO jacchm.footballapp.FootballappApplication [main] Starting FootballappApplication on DESKTOP-4VOUBH7 with PID 37100 (D:\JavaProjects\footballapp\target\classes started by biuro in D:\JavaProjects\footballapp)
+2020-11-11 16:27:11,412 INFO jacchm.footballapp.FootballappApplication [main] No active profile set, falling back to default profiles: default
+2020-11-11 16:27:12,092 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-11 16:27:12,157 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 59ms. Found 5 JPA repository interfaces.
+2020-11-11 16:27:12,606 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2020-11-11 16:27:12,614 INFO org.apache.coyote.http11.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-11 16:27:12,615 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2020-11-11 16:27:12,615 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-11 16:27:12,726 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] [main] Initializing Spring embedded WebApplicationContext
+2020-11-11 16:27:12,727 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1264 ms
+2020-11-11 16:27:12,899 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-11 16:27:12,908 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler [main] Initializing ExecutorService 'taskScheduler'
+2020-11-11 16:27:12,943 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-11 16:27:12,989 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-11-11 16:27:13,093 INFO org.hibernate.annotations.common.Version [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-11 16:27:13,112 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-11 16:27:13,187 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-11-11 16:27:13,387 INFO org.apache.coyote.http11.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-11 16:27:13,439 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-11-11 16:27:13,442 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path '/api'
+2020-11-11 16:27:13,443 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-11-11 16:27:13,462 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-11-11 16:27:15,358 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-11 16:27:15,366 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-11 16:27:15,671 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-11-11 16:27:15,683 INFO jacchm.footballapp.FootballappApplication [main] Started FootballappApplication in 4.65 seconds (JVM running for 6.163)
+2020-11-11 16:27:24,908 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] [http-nio-8080-exec-6] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-11 16:27:24,908 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] Initializing Servlet 'dispatcherServlet'
+2020-11-11 16:27:24,915 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-6] Completed initialization in 7 ms
