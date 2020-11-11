@@ -16,6 +16,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
@@ -53,8 +54,13 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
     @Override
     public List<CompetitionDTO> getCompetitions() {
         RequestEntity<String> request = new RequestEntity<>(headers, HttpMethod.GET, URI.create(footballDataCompetitions));
-        ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 
+        ResponseEntity<String> response;
+        try {
+            response = restTemplate.exchange(request, String.class);
+        } catch (RestClientException e) {
+            throw new FootballAppException(ErrCode.ERR0004);
+        }
         if (response.getStatusCode().isError()) {
             throw new FootballAppException(ErrCode.ERR0001);
         }
@@ -76,7 +82,13 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
         public List<TeamDTO> getTeams(int competitionId) {
             String url = MessageFormat.format(footballDataTeams, Integer.toString(competitionId));
             RequestEntity<String> request = new RequestEntity<>(headers, HttpMethod.GET, URI.create(url));
-            ResponseEntity<String> response = restTemplate.exchange(request, String.class);
+
+            ResponseEntity<String> response;
+            try {
+                response = restTemplate.exchange(request, String.class);
+            } catch (RestClientException e) {
+                throw new FootballAppException(ErrCode.ERR0004);
+            }
 
             if (response.getStatusCode().isError()) {
                 throw new FootballAppException(ErrCode.ERR0001);
@@ -105,7 +117,13 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
     public List<LeagueTablePositionDTO> getResults(int competitionId) {
         String url = MessageFormat.format(footballDataResults, Integer.toString(competitionId));
         RequestEntity<String> request = new RequestEntity<>(headers, HttpMethod.GET, URI.create(url));
-        ResponseEntity<String> response = restTemplate.exchange(request, String.class);
+
+        ResponseEntity<String> response;
+        try {
+            response = restTemplate.exchange(request, String.class);
+        } catch (RestClientException e) {
+            throw new FootballAppException(ErrCode.ERR0004);
+        }
 
         if (response.getStatusCode().isError()) {
             throw new FootballAppException(ErrCode.ERR0001);
