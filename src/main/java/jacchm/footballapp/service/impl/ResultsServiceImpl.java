@@ -50,7 +50,7 @@ public class ResultsServiceImpl implements ResultsService {
     @Override
     public List<LeagueTablePositionDTO> getLeagueResultsOfType(Integer competitionId, String type) {
         return leagueTablePositionRepository
-                .findByCompetitionIdAndType(competitionId, type)
+                .findByCompetitionIdAndType(competitionId, type.toUpperCase())
                 .stream()
                 .map(leagueTablePositionMapper::mapToLeagueTablePositionDTO)
                 .collect(Collectors.toList());

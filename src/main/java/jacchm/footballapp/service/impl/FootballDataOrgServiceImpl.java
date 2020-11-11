@@ -59,10 +59,10 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
         try {
             response = restTemplate.exchange(request, String.class);
         } catch (RestClientException e) {
-            throw new FootballAppException(ErrCode.ERR0004);
+            throw new FootballAppException(ErrCode.ERR0001);
         }
         if (response.getStatusCode().isError()) {
-            throw new FootballAppException(ErrCode.ERR0001);
+            throw new FootballAppException(ErrCode.ERR0004);
         }
 
         String respCompetitions = response.getBody();
@@ -87,11 +87,11 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
             try {
                 response = restTemplate.exchange(request, String.class);
             } catch (RestClientException e) {
-                throw new FootballAppException(ErrCode.ERR0004);
+                throw new FootballAppException(ErrCode.ERR0001);
             }
 
             if (response.getStatusCode().isError()) {
-                throw new FootballAppException(ErrCode.ERR0001);
+                throw new FootballAppException(ErrCode.ERR0004);
             }
 
             String respTeams = response.getBody();
@@ -122,11 +122,11 @@ public class FootballDataOrgServiceImpl implements ExternalFootballAPIService {
         try {
             response = restTemplate.exchange(request, String.class);
         } catch (RestClientException e) {
-            throw new FootballAppException(ErrCode.ERR0004);
+            throw new FootballAppException(ErrCode.ERR0001);
         }
 
         if (response.getStatusCode().isError()) {
-            throw new FootballAppException(ErrCode.ERR0001);
+            throw new FootballAppException(ErrCode.ERR0004);
         }
 
         String results = response.getBody();

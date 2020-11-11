@@ -4,12 +4,17 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-
-  # spring database mysql
+      # spring database postgresql
   datasource:
-    url: jdbc:mysql://localhost:3306/footballapp?serverTimezone=CET
-    username: devuser
-    password: 2252526j
+    url: jdbc:postgresql://localhost:5432/footballapp
+    username: postgres
+    password: Simnes49is
+  # spring database mysql
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/footballapp?serverTimezone=CET
+#    username: devuser
+#    password: 2252526j
+
 
   # server settings
 server:
