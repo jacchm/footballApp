@@ -16,7 +16,7 @@ public class CORSConfig implements WebMvcConfigurer {
                 registry.addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowedOrigins("*")
+                        .allowedOrigins("https://jacchm-football-application.herokuapp.com")
                         .allowCredentials(true);
             }
         };
