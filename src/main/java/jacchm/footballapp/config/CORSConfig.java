@@ -13,10 +13,10 @@ public class CORSConfig implements WebMvcConfigurer {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/**")
+                registry.addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowedOrigins("https://jacchm-football-application.herokuapp.com")
+                        .allowedOrigins("*")
                         .allowCredentials(true);
             }
         };
