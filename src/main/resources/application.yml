@@ -1,0 +1,34 @@
+spring:
+  # spring jpa
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+      # spring database postgresql
+  datasource:
+    url: jdbc:postgresql://localhost:5432/footballapp
+    username: postgres
+    password: Simnes49is
+  # spring database mysql
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/footballapp?serverTimezone=CET
+#    username: devuser
+#    password: 2252526j
+
+
+  # server settings
+server:
+  servlet:
+    context-path: /api
+
+# external API config
+authHeader: X-Auth-Token
+authToken: 641dd694283241309d4549a804a9757e
+# list of competitions to be followed; change the format and configure Annotation Processor in the future
+competitionsId: 2021,2019,2015,2014,2002
+# list of external football api endpoints which have to be reached to achieve particular data
+footballDataCompetitions: http://api.football-data.org/v2/competitions/
+footballDataTeams: http://api.football-data.org/v2/competitions/{0}/teams
+footballDataResults: http://api.football-data.org/v2/competitions/{0}/standings
+
+
